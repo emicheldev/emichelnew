@@ -13,7 +13,7 @@
                 </div>
         
                 <div class="flex items-center justify-center w-full mt-6 md:mt-0 md:w-1/2">
-                    <img src="/images/emichel_profil.svg" alt="php" class="h-full w-full"  srcset="">
+                    <img loading=lazy src="/images/emichel_profil.svg" alt="php" class="h-full w-full"  srcset="">
                 </div>
         </div>
    </section>

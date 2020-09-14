@@ -519,7 +519,7 @@
         <div class="p-4 md:w-1/6 ">
             <a href="{{route('topics.php')}} " class="flex items-center p-4 bg-blue-100 rounded-lg shadow-xs cursor-pointer hover:bg-blue-500 hover:text-gray-100">
                 <div class="p-3 mr-4 bg-blue-300 rounded-full dark:text-orange-100 ">
-                  <img src="/images/icons/subjects/php.svg" alt="php" class="h-6"  srcset="">
+                  <img loading=lazy src="/images/icons/subjects/php.svg" alt="php" class="h-6"  srcset="">
                 </div>
                 <div>
                   <p class="mb-2 text-sm font-medium ">

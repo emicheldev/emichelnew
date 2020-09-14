@@ -81,7 +81,7 @@
                 <span class="text-gray-500 ">67 résultats pour “PHP”</span>
                 <div class=" flex py-5 md:flex-row flex-col rounded-lg shadow-lg bg-white my-5 border border-gray-200  ">
                     <div class="mx-5">
-                      <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
+                      <img loading=lazy class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
                     </div>
                     <div class="flex flex-col md:items-start md:text-left text-center">
                         <h3 class="text-xl font-semibold">Les bases de PHP</h3>
@@ -101,7 +101,7 @@
 
                 <div class=" flex py-5 md:flex-row flex-col rounded-lg shadow-lg bg-white my-5 border border-gray-200 ">
                     <div class="mx-5">
-                      <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
+                      <img loading=lazy class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
                     </div>
                     <div class="flex flex-col md:items-start md:text-left text-center">
                         <h3 class="text-xl font-semibold">Guide complet des dates en PHP</h3>
@@ -121,7 +121,7 @@
 
                 <div class=" flex py-5 md:flex-row flex-col rounded-lg shadow-lg bg-white my-5 border border-gray-200 ">
                     <div class="mx-5">
-                      <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
+                      <img loading=lazy class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
                     </div>
                     <div class="flex flex-col md:items-start md:text-left text-center">
                         <h3 class="text-xl font-semibold">Guide complet des dates en PHP</h3>
@@ -134,7 +134,7 @@
 
                 <div class=" flex py-5 md:flex-row flex-col rounded-lg shadow-lg bg-white my-5 border border-gray-200 ">
                     <div class="mx-5">
-                      <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
+                      <img loading=lazy class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
                     </div>
                     <div class="flex flex-col md:items-start md:text-left text-center">
                         <h3 class="text-xl font-semibold">Guide complet des dates en PHP</h3>
@@ -154,7 +154,7 @@
 
                 <div class=" flex py-5 md:flex-row flex-col rounded-lg shadow-lg bg-white my-5 border border-gray-200 ">
                     <div class="mx-5">
-                      <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
+                      <img loading=lazy class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
                     </div>
                     <div class="flex flex-col md:items-start md:text-left text-center">
                         <h3 class="text-xl font-semibold">Guide complet des dates en PHP</h3>

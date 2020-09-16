@@ -52,4 +52,5 @@ Route::layout('layouts.app')->group(function (){
     Route::livewire('/', 'pages.home')->name('home');
     Route::livewire('/learning', 'learning.index')->name('learning');
     Route::livewire('/topics.php', 'topics.index')->name('topics.php');
+    Route::livewire('/learning.course', 'learning.course')->name('course');
 });

@@ -16,6 +16,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">
+    <link rel="stylesheet" href="{{ asset('css/prism.css') }} ">
+    @stack('styles')
     @livewireStyles
 
     <!-- CSRF Token -->

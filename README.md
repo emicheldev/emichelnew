@@ -56,6 +56,18 @@ cd emichelnew
 composer install
 ```
 
+```sh
+php artisan ui tall
+```
+
+```sh
+npm install
+```
+
+```sh
+npm run dev
+```
+
 ##  Author
 
   

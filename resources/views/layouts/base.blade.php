@@ -7,8 +7,9 @@
         
         @yield('body')
 
-        @include('includes.footer')
         <script src="{{ url(mix('js/app.js')) }}"></script>
+        <script src=" {{ asset('js/prism.js ') }} "></script>
+        @include('includes.footer')
         @livewireScripts
     </body>
 </html>

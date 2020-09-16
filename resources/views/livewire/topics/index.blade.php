@@ -84,7 +84,7 @@
                       <img loading=lazy class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/80x80">
                     </div>
                     <div class="flex flex-col md:items-start md:text-left text-center">
-                        <h3 class="text-xl font-semibold">Les bases de PHP</h3>
+                        <a href=" {{ route('course') }} "><h3 class="text-xl font-semibold">Les bases de PHP</h3></a>
                         <div class=" font-light">
                             <span class="mr-5 border-gray-200 border-r pr-5">Par : e. Michel </span> <span> Publié le 8 mai 2018</span>
                         </div>

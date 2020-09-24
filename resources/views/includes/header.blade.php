@@ -1,8 +1,8 @@
-<nav class="shadow">
+<nav class="shadow element">
     <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
         <div class="flex justify-between items-center">
             <div>
-                <a class="" href="#">
+                <a class="element" href="/">
                    <img src="images/emichel_logo.svg " alt="emichel logo" class="h-6 ">
                 </a>
             </div>

@@ -12,6 +12,97 @@
     </div>
 </section>
 
+<section class="container mx-auto px-6 my-1 flex flex-wrap -m-4">
+    <div class="p-2 md:w-40 ">
+        <a href="{{route('topics.php')}} " class="flex items-center p-4 bg-blue-100 rounded-lg shadow-xs cursor-pointer hover:bg-blue-500 hover:text-gray-100">
+            
+            <img loading=lazy src="/images/icons/subjects/php.svg" alt="php" class="h-5"  srcset="">
+            <div>
+              <p class=" text-xs font-medium ml-2 ">
+                PHP
+              </p>
+              
+            </div>
+        </a>
+    </div>
+
+    <div class="p-2 md:w-40 ">
+        <div class="flex items-center p-4 bg-gray-100 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100">
+            
+            <img src="/images/icons/subjects/symfony.svg" alt="" class="h-5"  srcset="">
+            <div>
+              <p class=" text-xs font-medium ml-2 ">
+                SYMFONY
+              </p>
+              
+            </div>
+        </div>
+    </div>
+    <div class="p-2 md:w-40 ">
+        <div class="flex items-center p-4 bg-orange-100 rounded-lg shadow-xs cursor-pointer hover:bg-orange-500 hover:text-gray-100">
+            
+            <img src="/images/icons/subjects/html5.svg" alt="" class="h-5"  srcset="">
+            <div>
+              <p class=" text-xs font-medium ml-2 ">
+                HTML
+              </p>
+              
+            </div>
+        </div>
+    </div>
+
+    <div class="p-2 md:w-40 ">
+        <div class="flex items-center p-4 bg-green-100 rounded-lg shadow-xs cursor-pointer hover:bg-green-500 hover:text-gray-100">
+            
+            <img src="/images/icons/subjects/vue-dot-js.svg" alt="" class="h-5"  srcset="">
+            <div>
+              <p class=" text-xs font-medium ml-2 ">
+                VUE
+              </p>
+              
+            </div>
+        </div>
+    </div>
+    <div class="p-2 md:w-40 ">
+        <div class="flex items-center p-4 bg-yellow-100 rounded-lg shadow-xs cursor-pointer hover:bg-yellow-500 hover:text-gray-100">
+            
+            <img src="/images/icons/subjects/javascript.svg" alt="" class="h-5"  srcset="">
+            <div>
+              <p class=" text-xs font-medium text-uppercase ml-2 ">
+                javascript
+              </p>
+              
+            </div>
+        </div>
+    </div>
+    <div class="p-2 md:w-40 ">
+        <div class="flex items-center p-4 bg-indigo-100 rounded-lg shadow-xs cursor-pointer hover:bg-indigo-500 hover:text-gray-100">
+            
+            <img src="/images/icons/subjects/css3.svg" alt="" class="h-5"  srcset="">
+            <div>
+              <p class=" text-xs font-medium ml-2 ">
+                CSS
+              </p>
+              
+            </div>
+        </div>
+    </div>
+    <div class="p-2 md:w-40 ">
+        <div class="flex items-center p-4 bg-red-100 rounded-lg shadow-xs cursor-pointer hover:bg-red-500 hover:text-gray-100">
+            
+            <img src="/images/icons/subjects/laravel.svg" alt="" class="h-5"  srcset="">
+            <div>
+              <p class=" text-xs font-medium ml-2 ">
+                LARAVEL
+              </p>
+              
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
 <section class="container mx-auto px-6 my-10">
     <section class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
         <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">

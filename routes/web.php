@@ -53,4 +53,13 @@ Route::layout('layouts.app')->group(function (){
     Route::livewire('/learning', 'learning.index')->name('learning');
     Route::livewire('/topics.php', 'topics.index')->name('topics.php');
     Route::livewire('/learning.course', 'learning.course')->name('course');
+
+    Route::livewire('/blog', 'blog.index')->name('blog');
+    Route::livewire('/post', 'blog.post')->name('post');
+    Route::livewire('/price', 'pages.price')->name('price');
+    
+
+
+
+
 });

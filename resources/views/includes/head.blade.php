@@ -15,8 +15,15 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     <!-- Styles -->
+    <style>
+        .element {
+            content-visibility: auto;
+        }
+    </style>
     <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">
     <link rel="stylesheet" href="{{ asset('css/prism.css') }} ">
+    <link rel="stylesheet" href="{{ asset('css/codemirror.css') }} ">
+    
     @stack('styles')
     @livewireStyles
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-   <section class="container mx-auto px-6 element">
+   <section class="max-w-6xl mx-auto px-6 element">
         <div class="md:flex items-center">
                 <div class="w-full md:w-1/2">
                     <div class="max-w-lg">
@@ -19,7 +19,7 @@
    </section>
 
     <section class="skills text-gray-700 body-font element">
-        <div class="container px-5 py-24 mx-auto">
+        <div class="max-w-6xl mx-auto px-5 py-24 ">
           <div class="text-center mb-20">
             <div class="flex justify-center">
               <div class="w-14 h-14 inline-flex items-center justify-center rounded-full bg-purple-100 text-purple-500 p-2 ">
@@ -90,7 +90,7 @@
     </section>
 
     <section class="text-gray-700 body-font bg-blue-50">
-      <div class="container px-5 py-24 mx-auto">
+      <div class="max-w-6xl mx-auto px-5 py-24 ">
         <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
           <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> DERNIER COURS</h1>
           <p class="lg:w-1/2 w-full leading-relaxed text-base">
@@ -177,17 +177,17 @@
             </div>
           </div>
         </div>
-        <button class="flex mx-auto mt-16 text-indigo-400 bg-indigo-200 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg">Voir tout</button>
+        <button class="flex mx-auto mt-16 text-indigo-600 bg-indigo-200 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 hover:text-white rounded-lg text-lg">Voir tout</button>
       </div>
     </section>
 
     <section class="blog text-gray-700 body-font">
-      <div class="container px-5 py-24 mx-auto">
+      <div class="max-w-6xl mx-auto px-5 py-24">
         <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
           <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"> Blog</h1>
           <p class="lg:w-1/2 w-full leading-relaxed text-base">
             J'aime bien partager mes connaissances et des recherche intéressantes, pour le faire j'ai mis en place un blog personnel.
-						Nous abordons plusieurs sujets intéressants et je donne quelques astuces et conseils aux jeunes développeurs pour mieux s'en sortir.          </p>
+						Nous abordons plusieurs sujets intéressants et je donne quelques astuces et conseils aux jeunes développeurs pour mieux s'en sortir.  </p>
         </div>
         <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
           <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
@@ -203,7 +203,7 @@
               </div>
               <div class="title-post font-medium">Mon titre</div>
 
-              <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis vel suscipit ex dolore possimus iure. 
+              <div class="summary-post text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><span class="">Lire plus</span></button>
               </div>
              
@@ -223,7 +223,7 @@
               </div>
               <div class="title-post font-medium">Mon titre</div>
 
-              <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis vel suscipit ex dolore possimus iure. 
+              <div class="summary-post text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 <button class="bg-blue-100 text-blue-500 px-2 mt-4 block rounded p-2 text-sm"><span class="">Lire plus</span></button>
               </div>
              
@@ -243,7 +243,7 @@
               </div>
               <div class="title-post font-medium">Mon titre</div>
 
-              <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis veritatis vel suscipit ex dolore possimus iure. 
+              <div class="summary-post text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 <button class="bg-blue-100 text-blue-500 px-2 mt-4 block rounded p-2 text-sm"><span class="">Lire plus</span></button>
               </div>
              

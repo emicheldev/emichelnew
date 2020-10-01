@@ -1,6 +1,5 @@
-
 <footer class="body-font bg-indigo-700 element">
-    <div class="container px-5 py-24 mx-auto">
+    <div class="max-w-6xl mx-auto  py-24 ">
       <div class="flex flex-wrap md:text-left text-center order-first text-white ">
         <div class="lg:w-1/4 md:w-1/2 w-full px-4">
           <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">SITE</h2>

@@ -1,5 +1,5 @@
 <section class="h-screen bg-learncour bg-purple-900 overflow-hidden ">
-  <main class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 mt-2/12">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-2/12">
     <div class="sm:text-center lg:text-left">
       <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-50 sm:text-5xl sm:leading-none md:text-6xl">
         Les bases de PHP : Introduction
@@ -22,9 +22,9 @@
   </main>
 </section>
 
-<section class="text-gray-700 body-font">
-    <div class="flex flex-wrap -m-4">
-      <div class="p-4 lg:w-4/6 md:w-full -mt-20 bg-white my-10">
+<section class="text-gray-700 body-font ">
+    <div class="flex flex-wrap -m-4 max-w-6xl mx-auto">
+      <div class="lg:w-4/6 md:w-full -mt-20 bg-white my-10">
         <div class=" p-8 sm:flex-row flex-col mx-5 ">
          
           <div class="flex-grow">

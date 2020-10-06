@@ -15,6 +15,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel-frontend-presets/tall": "^1.7",
         "laravel/framework": "^7.24",
+        "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
         "livewire/livewire": "^1.3"
     },

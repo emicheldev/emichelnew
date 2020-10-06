@@ -57,9 +57,13 @@ Route::layout('layouts.app')->group(function (){
     Route::livewire('/blog', 'blog.index')->name('blog');
     Route::livewire('/post', 'blog.post')->name('post');
     Route::livewire('/price', 'pages.price')->name('price');
-    
 
+});
 
+Route::layout('layouts.admin')->group(function(){
 
-
+    Route::middleware('auth')->group(function () {
+        Route::livewire('admin/dashboard', 'admin.index')->name('dashboard');
+        Route::livewire('admin/users', 'admin.user.index')->name('users');
+    });
 });

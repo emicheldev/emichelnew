@@ -22,6 +22,7 @@ class Register extends Component
 
     /** @var string */
     public $passwordConfirmation = '';
+ 
 
     public function register()
     {

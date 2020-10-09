@@ -26,7 +26,7 @@
             </div>
         </a>
     </div>
-
+    
     <div class="p-2 md:w-40 ">
         <div class="flex items-center p-4 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100">
             
@@ -107,32 +107,35 @@
 
 <section class="container mx-auto px-6 my-10">
     <section class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-        <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-            <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1587620931276-d97f425f62b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80"></div>
+        @foreach ($articles as $article)
 
-            <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
-                
-                <div class="header-content inline-flex ">
-                <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
-                    <div class="h-2 w-2 rounded-full m-1 bg-purple-500 " ></div>
-                </div>
-                <div class="category-title flex-1 text-sm"> PHP</div>
-                </div>
-                <div class="title-post font-medium"><a href="{{route("post")}} ">Mon titre</a> </div>
+            <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+                <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url({{$article->image }} )"></div>
 
-                <div class="summary-post text-gray-700 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    <div class="flex justify-between items-center mt-4">
-                        <div class="flex items-center">
-                            <img src="https://user.oc-static.com/users/avatars/15970109488563_profil.jpg"
-                                 class="w-8 h-8 object-cover rounded-full" alt="avatar">
-                            <a class="text-gray-700 text-sm mx-3" href="#">e. Michel</a>
-                        </div>
-                        <span class="font-light text-sm text-gray-600">Mar 10, 2018</span>
+                <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
+                    
+                    <div class="header-content inline-flex ">
+                    <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
+                        <div class="h-2 w-2 rounded-full m-1 bg-purple-500 " ></div>
                     </div>
+                    <div class="category-title flex-1 text-sm"> PHP</div>
+                    </div>
+                    <div class="title-post font-medium"><a href="{{route("post")}} ">{{ Str::limit($article->title, 10) }}</a> </div>
+
+                    <div class="summary-post text-gray-700 text-sm">{{ Str::limit($article->summary_md, 50)}} 
+                        <div class="flex justify-between items-center mt-4">
+                            <div class="flex items-center">
+                                <img src="https://user.oc-static.com/users/avatars/15970109488563_profil.jpg"
+                                    class="w-8 h-8 object-cover rounded-full" alt="avatar">
+                                <a class="text-gray-700 text-sm mx-3" href="#">e. Michel</a>
+                            </div>
+                            <span class="font-light text-sm text-gray-600">{{$article->created_at->diffForHumans() }}</span>
+                        </div>
+                    </div>
+                
                 </div>
-            
             </div>
-        </div>
+        @endforeach 
 
         <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
             <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)"></div>

@@ -21,6 +21,7 @@ Route::layout('layouts.auth')->group(function () {
 
         Route::livewire('register', 'auth.register')
             ->name('register');
+            
     });
 
     Route::livewire('password/reset', 'auth.passwords.email')
@@ -38,6 +39,9 @@ Route::layout('layouts.auth')->group(function () {
             ->name('password.confirm');
     });
 });
+
+Route::get('/login/{social}','Auth\socialLogin@Login')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
+Route::get('/login/{social}/callback','Auth\socialLogin@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
 
 Route::middleware('auth')->group(function () {
     Route::get('email/verify/{id}/{hash}', 'Auth\EmailVerificationController')
@@ -65,5 +69,7 @@ Route::layout('layouts.admin')->group(function(){
     Route::middleware('auth')->group(function () {
         Route::livewire('admin/dashboard', 'admin.index')->name('dashboard');
         Route::livewire('admin/users', 'admin.user.index')->name('users');
+        Route::livewire('admin/blog', 'admin.blog.index')->name('storepost');
+        Route::livewire('admin/blog/create', 'admin.blog.create')->name('createpost');
     });
 });

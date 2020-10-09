@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Blog;
 
 use Livewire\Component;
+use App\Article;
 
 class Index extends Component
 {
     public function render()
     {
-        return view('livewire.blog.index');
+        $articles = Article::orderByDesc('updated_at')->where('online', true)->get();
+        return view('livewire.blog.index', ['articles' => $articles]);
     }
 }

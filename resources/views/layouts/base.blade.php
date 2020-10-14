@@ -3,11 +3,8 @@
    @include('includes.head')
 
     <body class="font-sans text-xl leading-normal tracking-normal bg-gray-50 ">
-        @include('includes.header')
         
-        @yield('body') 
-        
-        @include('includes.footer')
+        @yield('body')
 
         {{-- scripts --}}
         

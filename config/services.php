@@ -30,4 +30,22 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'github' => [
+        'client_id' => '238165b6944795f255e9',
+        'client_secret' => '8b6814c490c6b1c08fe29251b8407a3a2506268f',
+        'redirect' => 'http://127.0.0.1:8000/callback/github',
+      ],
+
+    'google' => [
+        'client_id' => 'xxxx',
+        'client_secret' => 'xxx',
+        'redirect' => 'https://www.w3alert.com/laravel-social-login/callback/google',
+    ],
+
+    'facebook' => [
+        'client_id' => 'your-facebook-app-id',
+        'client_secret' => 'your-facebook-app-secret',
+        'redirect' => 'http://your-callback-url',
+    ],
+
 ];

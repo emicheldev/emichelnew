@@ -1,5 +1,3 @@
-@props(['example'])
-
-<pre><code>
-        {!! $example !!}
-</code></pre>
+<div >
+        <h4 >{{ $message }}</h4>
+</div>

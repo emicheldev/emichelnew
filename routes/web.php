@@ -1,6 +1,26 @@
 <?php
 
+use App\Http\Livewire\Blog\Post;
+use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Blog\Index;
+use App\Http\Livewire\Pages\Home;
+use App\Http\Livewire\Auth\Verify;
+use App\Http\Livewire\Pages\Price;
+use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Learning\Course;
+use App\Http\Livewire\Admin\Blog\Create;
+use App\Http\Livewire\Auth\Passwords\Email;
+use App\Http\Livewire\Auth\Passwords\Reset;
+use App\Http\Livewire\Auth\Passwords\Confirm;
+use App\Http\Livewire\Topics\Index as Topics;
+use App\Http\Livewire\Admin\Index as dashoard;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Livewire\Admin\User\Index as Users;
+use App\Http\Livewire\learning\Index as Learning;
+use App\Http\Livewire\Admin\Blog\Index as AdminBlog;
+use App\Http\Controllers\Auth\EmailVerificationController;
+use App\Http\Livewire\Blog\Show;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,52 +34,62 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::layout('layouts.auth')->group(function () {
-    Route::middleware('guest')->group(function () {
-        Route::livewire('login', 'auth.login')
-            ->name('login');
 
-        Route::livewire('register', 'auth.register')
-            ->name('register');
-    });
+Route::middleware('guest')->group(function () {
+    Route::get('login', Login::class)
+        ->name('login');
 
-    Route::livewire('password/reset', 'auth.passwords.email')
-        ->name('password.request');
-
-    Route::livewire('password/reset/{token}', 'auth.passwords.reset')
-        ->name('password.reset');
-
-    Route::middleware('auth')->group(function () {
-        Route::livewire('email/verify', 'auth.verify')
-            ->middleware('throttle:6,1')
-            ->name('verification.notice');
-
-        Route::livewire('password/confirm', 'auth.passwords.confirm')
-            ->name('password.confirm');
-    });
+    Route::get('register', Register::class)
+        ->name('register');
 });
 
+Route::get('password/reset', Email::class)
+    ->name('password.request');
+
+Route::get('password/reset/{token}', Reset::class)
+    ->name('password.reset');
+
 Route::middleware('auth')->group(function () {
-    Route::get('email/verify/{id}/{hash}', 'Auth\EmailVerificationController')
+    Route::get('email/verify', Verify::class)
+        ->middleware('throttle:6,1')
+        ->name('verification.notice');
+
+    Route::get('password/confirm', Confirm::class)
+        ->name('password.confirm');
+});
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
         ->middleware('signed')
         ->name('verification.verify');
 
-    Route::post('logout', 'Auth\LogoutController')
+    Route::post('logout', LogoutController::class)
         ->name('logout');
 });
 
-Route::layout('layouts.app')->group(function (){
-    Route::livewire('/', 'pages.home')->name('home');
-    Route::livewire('/learning', 'learning.index')->name('learning');
-    Route::livewire('/topics.php', 'topics.index')->name('topics.php');
-    Route::livewire('/learning.course', 'learning.course')->name('course');
 
-    Route::livewire('/blog', 'blog.index')->name('blog');
-    Route::livewire('/post', 'blog.post')->name('post');
-    Route::livewire('/price', 'pages.price')->name('price');
-    
+Route::get('/login/{social}','Auth\socialLogin@Login')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
+Route::get('/login/{social}/callback','Auth\socialLogin@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
 
 
+    Route::get('/', Home::class)->name('home');
+    Route::get('/learning', Learning::class)->name('learning');
+    Route::get('/topics.php', Topics::class)->name('topics.php');
+    Route::get('/learning.course', Course::class)->name('course');
+
+    Route::get('/blog/', Index::class)->name('blog');
+    Route::get('/post/{slug}', Show::class)->name('article.show');
+    Route::get('/price', Price::class)->name('price');
 
 
-});
+
+
+Route::middleware('auth')->group(function () {
+        Route::get('admin/dashboard', dashoard::class)->name('dashboard');
+        Route::get('admin/users', Users::class)->name('users');
+        Route::get('admin/blog', AdminBlog::class)->name('storepost');
+        Route::get('admin/blog/create', Create::class)->name('createpost');
+    });
+

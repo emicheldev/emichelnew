@@ -22,6 +22,7 @@ class Register extends Component
 
     /** @var string */
     public $passwordConfirmation = '';
+ 
 
     public function register()
     {
@@ -46,6 +47,6 @@ class Register extends Component
 
     public function render()
     {
-        return view('livewire.auth.register');
+        return view('livewire.auth.register')->extends('layouts.auth');
     }
 }

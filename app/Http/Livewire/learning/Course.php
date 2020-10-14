@@ -8,6 +8,6 @@ class Course extends Component
 {
     public function render()
     {
-        return view('livewire.learning.Course');
+        return view('livewire.learning.Course')->extends('layouts.app');
     }
 }

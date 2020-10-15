@@ -1,7 +1,7 @@
 <section class="relative block" style="height: 500px;">
     <div
       class="absolute top-0 w-full h-full bg-center bg-cover"
-      style='background-image: url("https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80");'
+      style='background-image: url("{{ $article->image }} ");'
     >
       <span
         id="blackOverlay"
@@ -53,13 +53,13 @@
                 <div class="mr-4 p-3 text-center">
                   <span
                     class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                    >22</span
-                  ><span class="text-sm text-gray-500">Janvier 2020</span>
+                    >{{ $article->created_at->format('d')}} </span
+                  ><span class="text-sm text-gray-500">{{  $article->created_at->format('M/Y')}}</span>
                 </div>
                 <div class="mr-4 p-3 text-center">
                   <span
                     class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                    >3 min</span
+                    >{{ getEstimateReadingTime($article->body_md)}} </span
                   ><span class="text-sm text-gray-500">lecture</span>
                 </div>
                 <div class="lg:mr-4 p-3 text-center">
@@ -75,11 +75,11 @@
             <h3
               class=" text-center text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2"
             >
-             Mon titre 1
+            {{ $article->title}} 
             </h3>
             <div class="flex flex-wrap justify-center">
               <div class="mb-2 text-gray-700 w-full lg:w-9/12 mt-10 px-4 ">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam non maiores sequi culpa veniam, qui veritatis commodi nihil quo, iste, incidunt distinctio quos accusantium! Facere possimus necessitatibus praesentium voluptatem et.
+                {{ $article->summary_md}} 
               </div>
             </div>
             
@@ -88,56 +88,7 @@
             <div class="flex flex-wrap justify-center">
               <div class="w-full lg:w-9/12 px-4">
                 <p class="mb-4 text-lg leading-relaxed text-gray-800">
-                  An artist of considerable range, Jenna the name taken by
-                  Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                  performs and records all of his own music, giving it a
-                  warm, intimate feel with a solid groove structure. An
-                  artist of considerable range.
-                </p>
-                <ol>
-                  <li class="py-3">
-                    Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero
-                    lectus. Fusce vehicula dictum mi. In non dolor at sem ullamcorper
-                    venenatis ut sed dui. Ut ut est quam. Suspendisse quam quam, commodo
-                    sit amet placerat in, interdum a ipsum. Morbi sit amet tellus
-                    scelerisque tortor semper posuere.
-                  </li>
-                  <li class="py-3">
-                    Morbi varius posuere blandit. Praesent gravida bibendum neque eget
-                    commodo. Duis auctor ornare mauris, eu accumsan odio viverra in.
-                    Proin sagittis maximus pharetra. Nullam lorem mauris, faucibus ut
-                    odio tempus, ultrices aliquet ex. Nam id quam eget ipsum luctus
-                    hendrerit. Ut eros magna, eleifend ac ornare vulputate, pretium nec
-                    felis.
-                  </li>
-                  <li class="py-3">
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                    posuere cubilia Curae; Nunc vitae pretium elit. Cras leo mauris,
-                    tristique in risus ac, tristique rutrum velit. Mauris accumsan
-                    tempor felis vitae gravida. Cras egestas convallis malesuada. Etiam
-                    ac ante id tortor vulputate pretium. Maecenas vel sapien suscipit,
-                    elementum odio et, consequat tellus.
-                  </li>
-                </ol>
-                <blockquote class="border-l-4 border-teal-500 italic my-8 pl-8 md:pl-12">
-                  Example of blockquote - Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet
-                  ligula.
-                </blockquote>
-
-                <p class="py-6">
-                  Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus
-                  purus, in mattis tortor sollicitudin pretium. Phasellus at diam
-                  posuere, scelerisque nisl sit amet, tincidunt urna. Cras nisi diam,
-                  pulvinar ut molestie eget, eleifend ac magna. Sed at lorem
-                  condimentum, dignissim lorem eu, blandit massa. Phasellus eleifend
-                  turpis vel erat bibendum scelerisque. Maecenas id risus dictum,
-                  rhoncus odio vitae, maximus purus. Etiam efficitur dolor in dolor
-                  molestie ornare. Aenean pulvinar diam nec neque tincidunt, vitae
-                  molestie quam fermentum. Donec ac pretium diam. Suspendisse sed odio
-                  risus. Nunc nec luctus nisi. Class aptent taciti sociosqu ad litora
-                  torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla
-                  eget sem dictum elementum.
+                  {{ $article->body_html}} 
                 </p>
               </div>
             </div>

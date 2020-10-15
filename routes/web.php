@@ -80,7 +80,7 @@ Route::get('/login/{social}/callback','Auth\socialLogin@handleProviderCallback')
     Route::get('/learning.course', Course::class)->name('course');
 
     Route::get('/blog/', Index::class)->name('blog');
-    Route::get('/post/{slug}', Show::class)->name('article.show');
+    Route::get('/post/{article}', Show::class)->name('article.show');
     Route::get('/price', Price::class)->name('price');
 
 

@@ -133,7 +133,6 @@
                             <span class="font-light text-sm text-gray-600">{{$article->created_at->diffForHumans() }}</span>
                         </div>
                     </div>
-                
                 </div>
             </div>
         @endforeach 

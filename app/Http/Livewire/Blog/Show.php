@@ -16,12 +16,11 @@ class Show extends Component
     public function mount(Article $article)
     {
         $this->article = $article;
+
     }
 
     public function render()
     {
-        //https://www.flowkl.com/tutorial/web-development/simple-blog-application-in-laravel-7/
-        //$post = Article::where('slug',$slug)->first();
         return view('livewire.blog.show')->extends('layouts.app');
     }
 }

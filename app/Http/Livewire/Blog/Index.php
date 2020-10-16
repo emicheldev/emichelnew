@@ -4,19 +4,27 @@ namespace App\Http\Livewire\Blog;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Article;
+use App\Models\Article;
 
 class Index extends Component
 {
     use WithPagination;
 
+
     public $searchArticle;
+    public $searchCategory;
 
     public function render()
     {
         $searchArticle = '%'.$this->searchArticle.'%';
-        $articles = Article::orderByDesc('updated_at')->where('title','like', $searchArticle)->get();
+        $searchCategory = '%'.$this->searchCategory.'%';
 
-        return view('livewire.blog.index', ['articles' => $articles])->extends('layouts.app');
+        $this->articles = Article::with('author','category')
+            ->where('title', 'like', $searchArticle)
+            ->join('categories', 'articles.category_id', '=', 'categories.id')
+            ->where('categories.name', 'like', $searchCategory)
+            ->published()->get();
+
+        return view('livewire.blog.index', ['articles' => $this->articles])->extends('layouts.app');
     }
 }

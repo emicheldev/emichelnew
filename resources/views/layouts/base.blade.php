@@ -9,10 +9,9 @@
         {{-- scripts --}}
         
         <script type="text/javascript" src="{{ url(mix('js/app.js')) }}"></script>
-        <script type="text/javascript" src=" {{ asset('js/prism.js ') }} "></script>
-
-        @livewireScripts
 
         @stack('scripts')
+        @livewireScripts
+
     </body>
 </html>

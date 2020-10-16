@@ -15,6 +15,7 @@ class Show extends Component
 
     public function mount(Article $article)
     {
+        $article->increment('view_count');
         $this->article = $article;
 
     }

@@ -17,8 +17,9 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->string('color')->unique();
-            $table->string('bgcolor')->unique();
+            $table->string('icon')->unique();
+            $table->string('color');
+            $table->string('bgcolor');
             $table->timestamps();
         });
     }

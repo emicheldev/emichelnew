@@ -15,16 +15,29 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->index();  //to generate seo friendly urls
-            $table->string('image');
-            $table->string('title')->index();  //to generate seo friendly urls
-            $table->text('body_md');  // the article body in mardkdown
-            $table->text('summary_md'); // the summary in markdown
-			$table->text('body_html')->nullable();  //the article body in html
-            $table->text('summary_html')->nullable();  //the summary in html
-            $table->char('online', 1);  // we'll use this to have articles published or in draft mode
-
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('content');
+            $table->string('image')->nullable();
+            $table->boolean('status');
+            $table->integer('view_count')->default(0);
+            $table->softDeletes();
             $table->timestamps();
+
+            $table->unsignedBigInteger('author_id')->nullable();
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('restrict');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+
+
+
+            //create article_tag table
+            Schema::create('article_tag', function (Blueprint $table) {
+                $table->string('article_id');
+                $table->string('tag_id');
+            });
+
+
         });
     }
 
@@ -35,6 +48,7 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('article_tag');
         Schema::dropIfExists('articles');
     }
 }

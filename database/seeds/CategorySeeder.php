@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -11,6 +12,13 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        $count = (int)$this->command->ask('How many categories do you need ?', 10);
+
+        $this->command->info("Creating {$count} categories.");
+ 
+         // Create the Genre
+         $categories = factory(App\Models\Category::class, $count)->create();
+ 
+         $this->command->info('categories Created!');
     }
 }

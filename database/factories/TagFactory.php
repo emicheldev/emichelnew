@@ -16,13 +16,10 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(App\Models\User::class, function (Faker $faker) {
+$factory->define(App\Models\Tag::class, function (Faker $faker) {
     return [
-        'name' => $faker->name('male'),
-        'email' => $faker->unique()->safeEmail,
-        'avatar' => "https://eu.ui-avatars.com/api/?name={$faker->name('male')}",
-        'email_verified_at' => now(),
-        'password' => Hash::make('secret'), // secret
-        'remember_token' => Str::random(10),
+        'title' => $faker->text(15),
+        'slug' => $faker->slug,
+        'description' => $faker->sentence,
     ];
 });

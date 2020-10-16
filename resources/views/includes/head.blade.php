@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="{{ asset('css/prism.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/codemirror.css') }} ">
     
-    @livewireStyles
     @stack('styles')
+    @livewireStyles
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Blog;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Article;
+use App\Models\Category;
 
 class Index extends Component
 {
@@ -24,7 +25,9 @@ class Index extends Component
             ->join('categories', 'articles.category_id', '=', 'categories.id')
             ->where('categories.name', 'like', $searchCategory)
             ->published()->get();
+        
+            $categories=Category::select('id','name','icon','color')->get();
 
-        return view('livewire.blog.index', ['articles' => $this->articles])->extends('layouts.app');
+        return view('livewire.blog.index', ['articles' => $this->articles, 'categories'=> $categories])->extends('layouts.app');
     }
 }

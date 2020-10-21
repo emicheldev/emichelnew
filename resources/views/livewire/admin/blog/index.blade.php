@@ -26,18 +26,19 @@
 
                                         <div class="ml-4">
                                             <div class="text-sm leading-5 font-medium text-gray-900">{{ $article->title}}</div>
-                                            <div class="text-sm leading-5 text-gray-500">jean@example.com</div>
+                                            <div class="text-sm leading-5 text-gray-500">{{ $article->author->name}}</div>
                                         </div>
                                     </div>
                                 </td>
                                 
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    <div class="text-sm leading-5 text-gray-900">{{ $article->body_md}}</div>
+                                    <div class="text-sm leading-5 text-gray-900">{{ Str::limit($article->content, 30)}}</div>
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                        {{ ($article->online) ? 'Active' : 'Desactive' }}
+                                        {{ ($article->status) ? 'Active' : 'Desactive' }}
+                                        {{ $article->status }}
                                     </span>
                                 </td>
 

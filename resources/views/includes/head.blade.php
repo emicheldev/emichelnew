@@ -20,10 +20,7 @@
             content-visibility: auto;
         }
     </style>
-    <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">
-    <link rel="stylesheet" href="{{ asset('css/prism.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/codemirror.css') }} ">
-    
+    <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">    
     @stack('styles')
     @livewireStyles
 

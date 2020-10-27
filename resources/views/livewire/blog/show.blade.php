@@ -48,7 +48,7 @@
               </div>
             </div>
         
-            <div class="w-full lg:w-4/12 px-4 ">
+            <div class="w-full lg:w-5/12 px-4 ">
               <div class="flex justify-center py-4 lg:pt-4 pt-8">
 
                 <div class="mr-4 p-3 text-gray-500 text-center flex flex-row">
@@ -60,7 +60,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>  
                   <span class="text-sm ">
-                    {{  $article->created_at->format('M/Y')}}</span>
+                    {{  $article->created_at->format('d M/Y')}}</span>
                 </div>
 
                 <div class="mr-4 p-3 text-gray-500 text-center flex flex-row">

@@ -31,16 +31,18 @@ class Index extends Component
         $searchCategory = '%'.$this->searchCategory.'%';
 
         $this->articles = Article::with('author','category')
+
             ->where('title', 'like', $searchArticle)
             ->leftJoin('categories', 'articles.category_id', '=', 'categories.id')
             ->where('categories.name', 'like', $searchCategory)
             ->select('articles.slug','articles.created_at',
                     'articles.image',
                     'title',
+                    'view_count',
                     'articles.description',
                     'author_id',
                     'name','icon','color')
-            ->published()->paginate(9);
+            ->published()->orderByDesc('created_at')->paginate(9);
         
             $categories=Category::select('id','name','icon','color')->get();
 

@@ -1,9 +1,4 @@
 <div>
-    @push('styles')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-
-        
-    @endpush
     <h3 class="text-gray-700 text-3xl font-semibold">Ajout d'article </h3>
     <div>
         @if (session()->has('message'))
@@ -17,7 +12,7 @@
         <div class="mt-4">
             <div class="p-6 bg-white rounded-md shadow-md">
                 
-                <form wire:submit.prevent="savePost">
+                <form wire:submit.prevent="update">
                  
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-4">
@@ -25,7 +20,7 @@
                             <select class="form-select block w-full mt-1" wire:model="category_id">
                                 <option value='' disable>--Selection de catégories--</option>
                                 @forelse ($categories as $id => $label)
-                                    <option value="{{$id}} " >{{$label}} </option>
+                                    <option value="{{$id}}" {{ $id == $category_id ? 'selected' : '' }} >{{$label}} </option>
                                 @empty
                                 pas de categorie
                                 @endforelse
@@ -34,9 +29,10 @@
                         </label>
                     </div>
                     <div class="block">
-                        @forelse($tags as $id =>$name)
+                        @forelse($availableTags as $id =>$name)
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox" wire:model="tags_id" name="tags[] " value="{{$id}}">
+                            <input type="checkbox" class="form-checkbox" wire:model="tags_id" name="tags[] " value="{{$id}}" 
+                            >
                             <span class="ml-2">{{$name}} </span>
                         </label>
                         @empty
@@ -62,7 +58,7 @@
 
                     </label>
                     <label class="block">
-                        <textarea id="content" class="form-textarea mt-1 block w-full text-gray-900" rows="5" placeholder="Enter content." wire:model='content'></textarea>
+                        <textarea id="mytextarea" class="form-textarea mt-1 block w-full" rows="5" placeholder="Enter content." wire:model='content'></textarea>
                         @error('content') <div  class="invalid-feedback">{{ $message }}</div> @enderror
 
                     </label>
@@ -72,20 +68,12 @@
                         <button type="submit" wire:click="$set('status','1')" value="1" class="px-4 py-2 bg-blue-800 text-gray-100 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Publier</button>
                     </div>
                 </form>
-
             </div>
 
 
         </div>
     </div>
     @push('scripts')
-        {{-- Import CSS and JS for SimpleMDE editor --}}
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-
-    <script>
-            // Initialise editors
-        var bodyEditor = new SimpleMDE({ element: document.getElementById("content") });
-    </script>
-        
+    
     @endpush
 </div>

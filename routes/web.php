@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Blog\Post;
+use App\Http\Livewire\Blog\Show;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Blog\Index;
 use App\Http\Livewire\Pages\Home;
@@ -10,6 +11,7 @@ use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Learning\Course;
 use App\Http\Livewire\Admin\Blog\Create;
+use App\Http\Livewire\Admin\Blog\update;
 use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Passwords\Confirm;
@@ -20,7 +22,6 @@ use App\Http\Livewire\Admin\User\Index as Users;
 use App\Http\Livewire\learning\Index as Learning;
 use App\Http\Livewire\Admin\Blog\Index as AdminBlog;
 use App\Http\Controllers\Auth\EmailVerificationController;
-use App\Http\Livewire\Blog\Show;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,5 +87,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/users', Users::class)->name('users');
         Route::get('admin/blog', AdminBlog::class)->name('storepost');
         Route::get('admin/blog/create', Create::class)->name('createpost');
+        Route::get('admin/blog/update/{id}', Update::class)->name('updatepost');
+
     });
 

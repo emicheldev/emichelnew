@@ -2,7 +2,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @hasSection('title')
-
         <title>@yield('title') - {{ config('app.name') }}</title>
     @else
         <title>{{ config('app.name') }}</title>
@@ -21,8 +20,8 @@
         }
     </style>
     <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">    
-    @stack('styles')
     @livewireStyles
+    @stack('styles')
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

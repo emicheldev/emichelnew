@@ -2,17 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\User;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
+    protected $fillable = [
+        'title','slug','description','content','image','status','author_id','category_id',
+    ];
     public function author()
     {
         return $this->belongsTo(User::class);
@@ -72,6 +70,11 @@ class Article extends Model
                         $q->orWhereRaw('LOWER(title) LIKE ?', ["%{$term}%"]);
              });
         }
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
 

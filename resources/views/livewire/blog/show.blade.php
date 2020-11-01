@@ -34,9 +34,9 @@
         class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64"
       >
         <div class="px-6">
-          <div class="flex flex-wrap justify-between">
+          <div class="flex flex-wrap ">
             <div
-              class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center"
+              class="w-full lg:w-3/12 px-4 flex justify-center"
             >
               <div class="relative">
                 <img
@@ -48,26 +48,28 @@
               </div>
             </div>
         
-            <div class="w-full lg:w-4/12 px-4 lg:order-1">
+            <div class="w-full lg:w-5/12 px-4 ">
               <div class="flex justify-center py-4 lg:pt-4 pt-8">
-                <div class="mr-4 p-3 text-center">
-                  <span
-                    class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                    >{{ $article->created_at->format('d')}} </span
-                  ><span class="text-sm text-gray-500">{{  $article->created_at->format('M/Y')}}</span>
+
+                <div class="mr-4 p-3 text-gray-500 text-center flex flex-row">
+                  <span class="text-sm ">{{ $article->author->name}}</span>
                 </div>
-                <div class="mr-4 p-3 text-center">
-                  <span
-                    class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                    >{{ getEstimateReadingTime($article->body_md)}} </span
-                  ><span class="text-sm text-gray-500">lecture</span>
+
+                <div class="mr-4 p-3 text-gray-500 text-center flex flex-row">
+                  <svg class="h-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>  
+                  <span class="text-sm ">
+                    {{  $article->created_at->format('d M/Y')}}</span>
                 </div>
-                <div class="lg:mr-4 p-3 text-center">
-                  <span
-                    class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                    >89</span
-                  ><span class="text-sm text-gray-500">Comments</span>
+
+                <div class="mr-4 p-3 text-gray-500 text-center flex flex-row">
+                  <svg class="h-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>  
+                  <span class="text-sm ">{{ getEstimateReadingTime($article->content)}}</span>
                 </div>
+               
               </div>
             </div>
           </div>
@@ -79,7 +81,7 @@
             </h3>
             <div class="flex flex-wrap justify-center">
               <div class="mb-2 text-gray-700 w-full lg:w-9/12 mt-10 px-4 ">
-                {{ $article->summary_md}} 
+                {{ $article->description}} 
               </div>
             </div>
             
@@ -88,7 +90,7 @@
             <div class="flex flex-wrap justify-center">
               <div class="w-full lg:w-9/12 px-4">
                 <p class="mb-4 text-lg leading-relaxed text-gray-800">
-                  {{ $article->body_html}} 
+                  {{ $article->content}} 
                 </p>
               </div>
             </div>

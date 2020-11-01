@@ -27,7 +27,7 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                 <span class="mx-3">Posts</span>
             </a>
-            <div class="flex flex-col py-2 px-6 text-gray-500 bg-gray-800" x-show="open" @click.away="open = false">
+            <div class="flex flex-col py-2 px-6 text-gray-200 bg-gray-800" x-show="open" @click.away="open = false">
                 <a class="mt-1 py-2 px-6 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('storepost')}} ">Liste </a>
                 <a class="mt-1 py-2 px-6 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('createpost')}}">Ajouter</a>
                 <a class="mt-1 py-2 px-6 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="">Soluta.</a>

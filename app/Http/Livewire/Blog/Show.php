@@ -2,22 +2,27 @@
 
 namespace App\Http\Livewire\Blog;
 
+
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
-use App\Article;
+use App\Models\Tag;
+use App\Models\Post;
+use App\Http\Requests;
+use App\Models\Category;
+
+
+use App\Models\Article as ModelArticle;
 
 class Show extends Component
 {
-    public $slug='';
     public $article;
 
-    public function mount(Article $article)
+    public function mount(ModelArticle $article)
     {
         $article->increment('view_count');
-        $this->article = $article;
-
+        $this->article= $article;  
     }
 
     public function render()

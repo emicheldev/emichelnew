@@ -1,6 +1,7 @@
 @extends('layouts.base')
 
 @section('body')
+
         <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200 font-roboto">
             @include('includes.admin.sidebar')
             

@@ -77,6 +77,7 @@
                     <x-button > Enregistrer </x-button >
                 </div>
             </form>
+            
         </div>
     </div>
 </div>

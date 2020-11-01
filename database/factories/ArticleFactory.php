@@ -20,14 +20,14 @@ $factory->define(App\Models\Article::class, function (Faker $faker) {
     return [
         'title' => $faker->text(15),
         'slug' => $faker->slug,
-        'image' => $faker->imageUrl(),
+        'description' => $faker->sentence(),
         'image' => $faker->imageUrl(),
         'status' => $faker->boolean(),
         'view_count' => $faker->randomDigit,
         'content' => $faker->paragraph(30),
         'author_id'  => function () {
             // Get random genre id
-            return App\Models\User::inRandomOrder()->first()->id;
+            return App\User::inRandomOrder()->first()->id;
         },
         'category_id'  => function () {
             // Get random genre id

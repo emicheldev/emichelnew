@@ -11,6 +11,7 @@
 |
 */
 
+
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
@@ -47,9 +48,8 @@ $app->singleton(
 |--------------------------------------------------------------------------
 |
 | This script returns the application instance. The instance is given to
-| the calling script so we can separate the building of the instances
+| the calling script so we can separate the building of the instances               
 | from the actual running of the application and sending responses.
 |
 */
-
 return $app;

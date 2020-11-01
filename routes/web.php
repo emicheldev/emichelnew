@@ -70,20 +70,15 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/login/{social}','Auth\socialLogin@Login')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
-Route::get('/login/{social}/callback','Auth\socialLogin@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
-
 
     Route::get('/', Home::class)->name('home');
     Route::get('/learning', Learning::class)->name('learning');
     Route::get('/topics.php', Topics::class)->name('topics.php');
     Route::get('/learning.course', Course::class)->name('course');
-
+    
     Route::get('/blog/', Index::class)->name('blog');
-    Route::get('/post/{article}', Show::class)->name('article.show');
+    Route::get('post/{article}', Show::class)->name('article.show');
     Route::get('/price', Price::class)->name('price');
-
-
 
 
 Route::middleware('auth')->group(function () {

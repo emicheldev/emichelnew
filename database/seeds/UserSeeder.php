@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
        $this->command->info("Creating {$count} users.");
 
         // Create the Genre
-        $users = factory(App\Models\User::class, $count)->create();
+        $users = factory(App\User::class, $count)->create();
 
         $this->command->info('Users Created!');
     }

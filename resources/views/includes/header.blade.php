@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center">
             <div>
                 <a class="element" href="/">
-                   <img src="images/emichel_logo.svg " alt="emichel logo" class="h-6 ">
+                   <img  src="{{ asset('images/emichel_logo.svg')}}" alt="emichel logo" class="h-6 ">
                 </a>
             </div>
 

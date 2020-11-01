@@ -11,12 +11,12 @@
         "php": "^7.4.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
-        "graham-campbell/markdown": "13.1",
         "guzzlehttp/guzzle": "^6.3",
         "laravel-frontend-presets/tall": "^1.7",
         "laravel/framework": "^7.24",
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
+        "league/commonmark": "^1.5",
         "livewire/livewire": "^2.0"
     },
     "require-dev": {

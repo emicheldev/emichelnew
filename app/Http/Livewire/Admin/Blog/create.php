@@ -8,6 +8,9 @@ use App\Models\Tag;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
+use League\CommonMark\CommonMarkConverter;
+
+
 class Create extends Component
 {
     public $title;
@@ -21,7 +24,14 @@ class Create extends Component
     public $category_id;
     public $tags_id=[];
     public $tags=[];
+    public $article_id;
 
+    
+    /**
+     * mount
+     *
+     * @return void
+     */
     public function mount(){
         $this->tags=Tag::orderBy('title')
         ->pluck('title','id')
@@ -30,11 +40,14 @@ class Create extends Component
         $this->categories=Category::orderBy('name')
         ->pluck('name','id')
         ->toArray();
-
-        // dd($this->categories[]);
     }
 
-
+    
+    /**
+     * render
+     *
+     * @return void
+     */
     public function render()
     {
         return view('livewire.admin.blog.create')->extends('layouts.admin');
@@ -55,10 +68,10 @@ class Create extends Component
         ]);
 
         $Article=Article::create([
-            'title' => $this->title,
+            'title' =>  $this->title,
             'status' => $this->status,
             'description' => $this->description,
-            'content' => $this->content,
+            'content' => (new CommonMarkConverter())->convertToHtml($this->content),
             'image' => $this->image,
             'slug' =>  Str::slug($this->title),
             'author_id' => auth()->user()->id,
@@ -66,6 +79,12 @@ class Create extends Component
             ]);
 
         $Article->tags()->attach($this->tags_id);
+        session()->flash('message', 'Post Created Successfully.');
+
+        return redirect()->route('createpost');
+
 
     }
+    
+    
 }

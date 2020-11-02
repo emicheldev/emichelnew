@@ -31,7 +31,6 @@ class Index extends Component
         $searchCategory = '%'.$this->searchCategory.'%';
 
         $this->articles = Article::with('author','category')
-
             ->where('title', 'like', $searchArticle)
             ->leftJoin('categories', 'articles.category_id', '=', 'categories.id')
             ->where('categories.name', 'like', $searchCategory)

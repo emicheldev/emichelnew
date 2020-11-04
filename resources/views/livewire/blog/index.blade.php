@@ -1,3 +1,11 @@
+@section('title', 'Blog')
+
+@section('meta')
+    <x-meta.general description="Blog pour les devs 👨‍💻 et les designers 🎨 écrit par les devs et designers, un point c'est tout 😉 "
+    title="Blog | e.Michel"
+    />
+@endsection
+
 <div class="">
     <section class="container mx-auto px-6 my-10">
         <div class="bg-indigo-700 mt-6 rounded-lg py-6 sm:py-12 lg:py-20 px-4 sm:px-6 lg:px-12 flex items-center relative flex justify-center text-gray-100">

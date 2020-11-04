@@ -10,7 +10,7 @@
     @hasSection('meta')
     <!-- Meta / Open Graph -->
         @yield('meta')
-    @endif
+    @endif 
     
     <!-- Favicon -->
     

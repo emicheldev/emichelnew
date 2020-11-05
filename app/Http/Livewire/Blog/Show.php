@@ -14,15 +14,19 @@ use App\Models\Category;
 
 
 use App\Models\Article as ModelArticle;
+use App\Repositories\ArticleRepositoryInterface;
 
 class Show extends Component
 {
     public $article;
+    public $populars;
 
     public function mount(ModelArticle $article)
     {
         $article->increment('view_count');
-        $this->article= $article;  
+        $this->article= $article;
+        $this->populars= $article::limit(3)->Popular()->get();
+
     }
 
     public function render()

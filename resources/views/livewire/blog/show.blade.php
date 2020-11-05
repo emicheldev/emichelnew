@@ -1,6 +1,13 @@
+@section('title', $article->title)
+
+@section('meta')
+    <x-meta.article :article="$article" 
+    />
+@endsection
+
 @push('styles')
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" />
+  <link rel="stylesheet" href=" " crossorigin="anonymous" />
+  <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
 @endpush
 
 <section class="relative block" style="height: 500px;">
@@ -80,8 +87,8 @@
             </div>
           </div>
           <div class=" mt-12">
-            <div class="flex justify-center prose lg:prose-xl">
-              <h1>{{ $article->title}} </h1>
+            <div class="">
+              <h1 class="text-center text-gray-800 text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl sm:leading-none md:text-6xl ">{{ $article->title}} </h1>
             </div>
             <div class="flex flex-wrap justify-center">
               <div class="mb-2 text-gray-700 w-full lg:w-9/12 mt-10 px-4 ">
@@ -112,77 +119,43 @@
 <section class="container mx-auto px-6 my-10">
 
     <section class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-        <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-            <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"></div>
+        @foreach($populars as $popular)
+        <x-card>
+          <x-slot name="image">
+              {{ $popular->image}}
+          </x-slot>
+          <x-slot name="title">
+              {{ $popular->title}}
+          </x-slot>
+          <x-slot name="color">
+              {{ $popular->category->color}}
+          </x-slot>
+          <x-slot name="name">
+              {{ $popular->name}}
+          </x-slot>
+          <x-slot name="description">
+              {{ $popular->description}}
+          </x-slot>
+          <x-slot name="author">
+              {{ $popular->author->name }}
+          </x-slot>
+          <x-slot name="slug">
+              {{ $popular->slug }}
+          </x-slot>
+          <x-slot name="view_count">
+              {{ $popular->view_count }}
+          </x-slot>
+          <x-slot name="created_at">
+              {{ $popular->created_at->diffForHumans() }}
+          </x-slot>
+      </x-card>
+        @endforeach
 
-            <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
-                
-                <div class="header-content inline-flex ">
-                <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
-                    <div class="h-2 w-2 rounded-full m-1 bg-purple-500 " ></div>
-                </div>
-                <div class="category-title flex-1 text-sm"> PHP</div>
-                </div>
-                <div class="title-post font-medium">Mon titre</div>
-
-                <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-1 text-xs "><span class="">Lire plus</span></button>
-                </div>
-            
-            </div>
-        </div>
-
-        <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-            <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1543966888-7c1dc482a810?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"></div>
-
-            <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
-                
-                <div class="header-content inline-flex ">
-                <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-yellow-100">
-                    <div class="h-2 w-2 rounded-full m-1 bg-yellow-500 " ></div>
-                </div>
-                <div class="category-title flex-1 text-sm"> JS</div>
-                </div>
-                <div class="title-post font-medium">Mon titre</div>
-
-                <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                <button class="bg-blue-100 text-blue-500 px-2 mt-4 block rounded p-1 text-xs"><span class="">Lire plus</span></button>
-                </div>
-            
-            </div>
-        </div>
-
-        <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-            <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1590608897129-79da98d15969?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"></div>
-
-            <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
-                
-                <div class="header-content inline-flex ">
-                <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-green-100">
-                    <div class="h-2 w-2 rounded-full m-1 bg-green-500 " ></div>
-                </div>
-                <div class="category-title flex-1 text-sm"> Vue</div>
-                </div>
-                <div class="title-post font-medium">Mon titre</div>
-
-                <div class="summary-post text-base text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                <button class="bg-blue-100 text-blue-500 px-2 mt-4 block rounded p-1 text-xs"><span class="">Lire plus</span></button>
-                </div>
-            
-            </div>
-        </div>
     </section>
 
 </section>
 
 
 @push('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js" integrity="sha512-9+422Bs3A87UkWfp+qV80Nfv9arhbCXKY1rxrF2seorI36mIIstMiuBfyKLF1yH1nnzQkEWq2xrzT4XU3Z+vrA==" crossorigin="anonymous"></script>
-<script src="https://myCDN.com/prism@v1.x/plugins/autoloader/prism-autoloader.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-1oLZvExT5RaW4q2GgvRPf+XzVVGmsKirfZBRN7aifdOpvZ1L9idEncfMFlfHiQNGBA+Sev+alscSAT/xQ0rwXA==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/components/prism-csharp.min.js" integrity="sha512-qvSIQfI/qEeMC1E1LMSPCsDl8vFzl0rkBfF6dDcnMJxQT+8M2WjSyDGqHQzZa+RChv3jkdKnZAo99BcAbGsnQg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js" integrity="sha512-VTY+zyTivsIMZ+ANMHvwsnz0hIRHyu/I+7vLqaGaQs//PnQEuNyrLsCwNYo64H92vHojvj2Oiq7bfli0fTSDkQ==" crossorigin="anonymous"></script>
-
-
+  <script type="text/javascript" src="{{ asset('js/prism.js') }}"></script>
 @endpush

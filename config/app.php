@@ -178,6 +178,9 @@ return [
         // Other service providers…
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        // My providers
+        App\Repositories\BackendServiceProvider::class,
+
     ],
 
     /*

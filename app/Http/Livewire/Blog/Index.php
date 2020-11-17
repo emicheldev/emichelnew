@@ -40,7 +40,7 @@ class Index extends Component
                     'view_count',
                     'articles.description',
                     'author_id',
-                    'name','icon','color')
+                    'name','icon','color','bgcolor')
             ->published()->orderByDesc('created_at')->paginate(9);
         
             $categories=Category::select('id','name','icon','color')->get();

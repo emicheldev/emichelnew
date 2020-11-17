@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Auth;
 
-use App\Providers\RouteServiceProvider;
-use App\Models\User;
+use App\User;
+use Livewire\Component;
+use App\Mail\VerifyMail;
+use App\Models\VerifyUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
-use Livewire\Component;
+use App\Providers\RouteServiceProvider;
 
 class Register extends Component
 {
@@ -38,8 +40,23 @@ class Register extends Component
             'password' => Hash::make($this->password),
         ]);
 
+        $user->sendEmailVerificationNotification();
         event(new Registered($user));
+        //event(new Registered($user));
 
+        // $verifyUser = VerifyUser::create([
+        //     'user_id' => $user->id,
+        //     'token' => sha1(time())
+        // ]);
+        
+        // \Mail::to($user->email)->send(new VerifyMail($user));
+
+        // //Auth::login($user, true);
+
+        // dd($verifyUser);
+
+        // redirect()->intended(route('home'));
+        
         Auth::login($user, true);
 
         redirect()->intended(route('home'));

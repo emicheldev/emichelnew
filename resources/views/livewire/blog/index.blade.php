@@ -27,6 +27,7 @@
     
     <section class="container mx-auto px-6 my-10">
         <section class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+
             @forelse ($articles as $article)
                 <x-card>
                     <x-slot name="image">
@@ -37,6 +38,9 @@
                     </x-slot>
                     <x-slot name="color">
                         {{ $article->color}}
+                    </x-slot>
+                    <x-slot name="bgcolor">
+                        {{ $article->bgcolor}}
                     </x-slot>
                     <x-slot name="name">
                         {{ $article->name}}

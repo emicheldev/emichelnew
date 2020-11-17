@@ -1,8 +1,7 @@
 @section('title', $article->title)
 
 @section('meta')
-    <x-meta.article :article="$article" 
-    />
+    <x-meta.article :article="$article" />
 @endsection
 
 @push('styles')

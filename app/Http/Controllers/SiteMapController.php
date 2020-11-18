@@ -11,11 +11,7 @@ class SiteMapController extends Controller
     {
         $expiration = now()->addDay(1);
 
-        $articles = cache()->remember('sitemap.articles', $expiration, function () {
-            return Article::published()
-                ->orderBy('created_at')
-                ->get();
-        });
+        $articles = Article::published()->orderBy('created_at')->get();
 
         return response()
             ->view('sitemap', ['articles' => $articles])

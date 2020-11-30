@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\A;
-use App\Http\Livewire\Blog\Post;
 use App\Http\Livewire\Blog\Show;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Blog\Index;
@@ -11,6 +9,7 @@ use App\Http\Livewire\Pages\Price;
 use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Learning\Course;
+use App\Http\Livewire\Portfolio\Index as Portfolio;
 use App\Http\Livewire\Admin\Blog\Create;
 use App\Http\Livewire\Admin\Blog\update;
 use App\Http\Livewire\Auth\Passwords\Email;
@@ -77,7 +76,9 @@ Route::middleware('auth')->group(function () {
 Route::get('sitemap.xml', [SiteMapController::class, 'index'])->name('sitemap');
 
 Route::get('/', Home::class)->name('home');
-Route::get('/learning', Learning::class)->name('learning');
+Route::get('/portfolio', portfolio::class)->name('portfolio');
+
+Route::get('/', Learning::class)->name('learning');
 Route::get('/topics.php', Topics::class)->name('topics.php');
 Route::get('/learning.course', Course::class)->name('course');
     

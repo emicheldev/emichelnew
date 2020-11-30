@@ -6,8 +6,8 @@
         <div class="header-content ">
            <div class="flex justify-between text-sm">
                <div class="inline-flex">
-               <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 " style="background-color: {{$bgcolor }}">
-                        <div class="h-2 w-2 rounded-full m-1 " style="background-color: {{$color }}" ></div>
+               <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 " style="background-color: {{ $bgcolor }}">
+                        <div class="h-2 w-2 rounded-full m-1 " style="background-color: {{ $color }}" ></div>
                     </div>
                     <div class="category-title flex-1"> {{ $name}}</div>
                </div>

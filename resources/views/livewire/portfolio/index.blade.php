@@ -1,6 +1,14 @@
+@section('title', 'Devéloppeur web freelance')
+
+@section('meta')
+    <x-meta.general description="Je suis développeur web et designer freelance, je réalise les applications web pour les cliens. Satisfaire mes clients est ma priorité.
+    "
+    title="Devéloppeur web freelance | e.Michel"
+    />
+@endsection
+
 @push('styles')
-<link href="https://unpkg.com/pattern.css" rel="stylesheet">
-    
+  <link href="https://unpkg.com/pattern.css" rel="stylesheet">
 @endpush
 
 <div class=" text-gray-200 bg-gray-900">
@@ -114,7 +122,7 @@
     <section class=" body-font">
       <div class="max-w-6xl mx-auto px-5 py-24 ">
         <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-          <h1 class=" title-font mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-6xl"> DERNIER COURS</h1>
+          <h1 class=" title-font mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left sm:text-5xl sm:leading-none md:text-6xl"> Derniers cours </h1>
           <p class="lg:w-1/2 w-full leading-relaxed text-base">
             Enseigner c'est apprendre deux fois. J'aime partager mes connaissances et mes découvertses.
           </p>
@@ -211,23 +219,27 @@
 						Nous abordons plusieurs sujets intéressants et je donne quelques astuces et conseils aux jeunes développeurs pour mieux s'en sortir.  </p>
         </div>
         <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-          <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto ">
-            <div class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-gray-800">
-              
-              <div class="header-content inline-flex ">
-                <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
-                  <div class="h-2 w-2 rounded-full m-1 bg-purple-500 " ></div>
+          @forelse ($articles as $article)
+              {{$article }}
+              <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto ">
+                <div class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-gray-800">
+                  
+                  <div class="header-content inline-flex ">
+                    <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
+                      <div class="h-2 w-2 rounded-full m-1 bg-purple-500 " ></div>
+                    </div>
+                    <div class="category-title flex-1 text-sm"> {{ $article->category->name }}</div>
+                  </div>
+                  <div class="title-post font-medium">{{$article->title}} </div>
+    
+                  <div class="summary-post text-sm">. 
+                  </div>
+                 
                 </div>
-                <div class="category-title flex-1 text-sm"> PHP</div>
               </div>
-              <div class="title-post font-medium">Mon titre</div>
-
-              <div class="summary-post text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-              </div>
-             
-            </div>
-          </div>
+          @empty
+              
+          @endforelse
 
           <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
             <div class=" w-70 -mt-10 shadow-lg rounded-lg overflow-hidden p-5 bg-gray-800">
@@ -271,20 +283,20 @@
 </div>
 
 @push('scripts')
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
-<script>
-  /* typed effect */
-  window.onload = function () {
-    new Typed ('.typed', {
-      strings: ["<span class='bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700'>Entrepreneur</span>","<span class='bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-orange-700'>Dev Full Stack.</span>", "<span class='bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-800'>Web designer</span> "],
-      typeSpeed: 100,
-        loop: true,
-        startDelay: 1000,
-        backDelay: 1000,
-        // fadeOut: true,
-    });
-  }
-</script>
+  <script>
+    /* typed effect */
+    window.onload = function () {
+      new Typed ('.typed', {
+        strings: ["<span class='bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700'>Entrepreneur</span>","<span class='bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-orange-700'>Dev Full Stack.</span>", "<span class='bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-800'>Web designer</span> "],
+        typeSpeed: 100,
+          loop: true,
+          startDelay: 1000,
+          backDelay: 1000,
+          // fadeOut: true,
+      });
+    }
+  </script>
     
 @endpush

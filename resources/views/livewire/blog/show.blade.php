@@ -129,6 +129,10 @@
           <x-slot name="color">
               {{ $popular->category->color}}
           </x-slot>
+          <x-slot name="bgcolor">
+            {{ $popular->category->bgcolor }}
+          </x-slot>
+        
           <x-slot name="name">
               {{ $popular->name}}
           </x-slot>

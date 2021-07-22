@@ -1,18 +1,20 @@
 @section('title', 'Create a new account')
 
+
+
 <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <a href="{{ route('home') }}">
             <x-logo class="w-auto h-8 mx-auto text-indigo-600" />
         </a>
 
-        <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
+        <h2 class="mt-6 text-3xl font-extrabold leading-9 text-center text-gray-900">
             Create a new account
         </h2>
 
-        <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
+        <p class="mt-2 text-sm leading-5 text-center text-gray-600 max-w">
             Or
-            <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+            <a href="{{ route('login') }}" class="font-medium text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500 focus:outline-none focus:underline">
                 sign in to your account
             </a>
         </p>
@@ -22,7 +24,14 @@
         <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
             <form wire:submit.prevent="register">
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+                </div>
+                <div>
+                    <label for="name" class="block text-sm font-medium leading-5 text-gray-700">
                         Name
                     </label>
 
@@ -36,7 +45,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
+                    <label for="email" class="block text-sm font-medium leading-5 text-gray-700">
                         Email address
                     </label>
 
@@ -50,7 +59,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
+                    <label for="password" class="block text-sm font-medium leading-5 text-gray-700">
                         Password
                     </label>
 
@@ -64,12 +73,12 @@
                 </div>
 
                 <div class="mt-6">
-                    <label for="password_confirmation" class="block text-sm font-medium text-gray-700 leading-5">
+                    <label for="password_confirmation" class="block text-sm font-medium leading-5 text-gray-700">
                         Confirm Password
                     </label>
 
                     <div class="mt-1 rounded-md shadow-sm">
-                        <input wire:model.lazy="passwordConfirmation" id="password_confirmation" type="password" required class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 appearance-none rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                        <input wire:model.lazy="passwordConfirmation" id="password_confirmation" type="password" required class="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5" />
                     </div>
                 </div>
 

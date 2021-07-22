@@ -21,9 +21,15 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Livewire\Admin\User\Index as Users;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Livewire\learning\Index as Learning;
+use App\Http\Livewire\learning\Show as Courseshow;
+use App\Http\Livewire\learning\Detail;
 use App\Http\Livewire\Admin\Blog\Index as AdminBlog;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\SiteMapController;
+use App\Http\Livewire\Subscriptions\Index as Subscription;
+use App\Http\Livewire\Subscriptions\Payment;
+use App\Http\Livewire\Subscriptions\PaymentStore;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,8 +67,6 @@ Route::middleware('auth')->group(function () {
         ->name('password.confirm');
 });
 
-
-
 Route::middleware('auth')->group(function () {
     Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
         ->middleware('signed')
@@ -73,28 +77,36 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::get('/plans', Subscription::class)->name('plans');
+Route::get('/payments', Payment::class)->name('payments');
+Route::post('/paymentstore', PaymentStore::class)->name('paymentstore');
+
+
+
 Route::get('sitemap.xml', [SiteMapController::class, 'index'])->name('sitemap');
 
 Route::get('/', Home::class)->name('home');
 Route::get('/portfolio', portfolio::class)->name('portfolio');
 
-Route::get('/', Learning::class)->name('learning');
+Route::get('/learning', Learning::class)->name('learning');
 Route::get('/topics.php', Topics::class)->name('topics.php');
+Route::get('/courses/show', Courseshow::class)->name('course_show');
+Route::get('/courses/detail', Detail::class)->name('detailcours');
 Route::get('/learning.course', Course::class)->name('course');
     
-    Route::get('/blog/', Index::class)->name('blog');
-    Route::get('post/{article}', Show::class)->name('article.show');
-    Route::get('/price', Price::class)->name('price');
+Route::get('/blog/', Index::class)->name('blog');
+Route::get('post/{article}', Show::class)->name('article.show');
+Route::get('/price', Price::class)->name('price');
 
 //Route::get('/user/verify/{token}', RegisterController::class);
 
 Route::middleware(['auth','verified'])->group(function () {
-        //Auth::routes(['verify' => true]);
-        Route::get('admin/dashboard', dashoard::class)->name('dashboard');
-        Route::get('admin/users', Users::class)->name('users');
-        Route::get('admin/blog', AdminBlog::class)->name('storepost');
-        Route::get('admin/blog/create', Create::class)->name('createpost');
-        Route::get('admin/blog/update/{id}', Update::class)->name('updatepost');
+    //Auth::routes(['verify' => true]);
+    Route::get('admin/dashboard', dashoard::class)->name('dashboard');
+    Route::get('admin/users', Users::class)->name('users');
+    Route::get('admin/blog', AdminBlog::class)->name('storepost');
+    Route::get('admin/blog/create', Create::class)->name('createpost');
+    Route::get('admin/blog/update/{id}', Update::class)->name('updatepost');
 
-    });
+});
 

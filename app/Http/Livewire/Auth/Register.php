@@ -57,9 +57,11 @@ class Register extends Component
 
         // redirect()->intended(route('home'));
         
-        Auth::login($user, true);
+        // Auth::login($user, true);
+        session()->flash('message', 'Post successfully updated.');
 
-        redirect()->intended(route('home'));
+
+        redirect()->to("register");
     }
 
     public function render()

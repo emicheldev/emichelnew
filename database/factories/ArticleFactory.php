@@ -1,37 +1,48 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use Faker\Generator as Faker;
+use App\User;
+use App\Models\Tag;
+use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
-| model instances for testing / seeding your application's database.
-|
-*/
 
-$factory->define(App\Models\Article::class, function (Faker $faker) {
-    return [
-        'title' => $faker->text(15),
-        'slug' => $faker->slug,
-        'description' => $faker->sentence(),
-        'image' => $faker->imageUrl(),
-        'status' => $faker->boolean(),
-        'view_count' => $faker->randomDigit,
-        'content' => $faker->paragraph(30),
-        'author_id'  => function () {
-            // Get random genre id
-            return App\User::inRandomOrder()->first()->id;
-        },
-        'category_id'  => function () {
-            // Get random genre id
-            return App\Models\Category::inRandomOrder()->first()->id;
-        },
-    ];
-});
+class ArticleFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Article::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+                'title' => $this->faker->text(15),
+                'slug' => $this->faker->slug,
+                'description' => $this->faker->sentence(),
+                'image' => $this->faker->imageUrl(),
+                'online' => $this->faker->boolean(),
+                'view_count' => $this->faker->randomDigit,
+                'content' => $this->faker->paragraph(30),
+                'author_id'  => function () {
+                    // Get random genre id
+                    return User::inRandomOrder()->first()->id;
+                },
+                'category_id'  => function () {
+                    // Get random genre id
+                    return Category::inRandomOrder()->first()->id;
+                },
+                
+            ];
+    }
+}

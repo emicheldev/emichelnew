@@ -20,7 +20,7 @@ class CreateArticlesTable extends Migration
             $table->text('description');
             $table->text('content');
             $table->string('image')->nullable();
-            $table->boolean('status');
+            $table->boolean('online')->nullable()->default(false);
             $table->integer('view_count')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->softDeletes();
@@ -29,7 +29,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('author_id')->nullable();
             $table->foreign('author_id')->references('id')->on('users')->onDelete('restrict');
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict');
 
 
 

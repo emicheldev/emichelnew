@@ -3,14 +3,17 @@
 namespace App;
 
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use App\Models\Course;
 use Laravel\Cashier\Billable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, Billable;
+    
+    use Notifiable, Billable, HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -39,9 +42,14 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts()
+    public function articles()
     {
-        return $this->hasMany('App\Models\Post', 'author_id');
+        return $this->hasMany('App\Models\Article', 'author_id');
+    }
+    
+    public function courses()
+    {
+        return $this->hasMany('App\Models\Course', 'author_id');
     }
     
     /**

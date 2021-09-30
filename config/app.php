@@ -234,8 +234,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         
         // Other aliases…
-
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
 
     ],
 

@@ -3,14 +3,31 @@
 namespace App\Models;
 
 use App\User;
+use App\Models\Tag;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Article extends Model
 {
+    use  HasFactory;
+    
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $fillable = [
-        'title','slug','description','content','image','status','author_id','category_id',
+        'title','slug','description','content','image','online','author_id','category_id',
     ];
+        
+    /**
+     * author
+     *
+     * @return void
+     */
     public function author()
     {
         return $this->belongsTo(User::class);
@@ -28,9 +45,9 @@ class Article extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function getStatusLabelAttribute()
+    public function getOnlineLabelAttribute()
     {
-        if ($this->status == 0) {
+        if ($this->online == 0) {
             return 'Brouillon';
         }
         return 'Publier';
@@ -48,29 +65,9 @@ class Article extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('status' , 1);
+        return $query->where('online' , 1);
     }
 
-    public function scopeFilter($query, $filter)
-    {
-        
-        // check if any term entered
-        if (isset($filter['term']) && $term = strtolower($filter['term']))
-        {
-            $query->where(function($q) use ($term) {
-                $q->whereHas('author', function($qr) use ($term) {
-                        $qr->where('name', 'LIKE', "%{$term}%");
-                    });
-                    $q->orWhereHas('category', function($qr) use ($term) {
-                            $qr->where('title', 'LIKE', "%{$term}%");
-                        });
-                        $q->orWhereHas('tags', function($qr) use ($term) {
-                            $qr->where('title', 'LIKE', "%{$term}%");
-                        });
-                        $q->orWhereRaw('LOWER(title) LIKE ?', ["%{$term}%"]);
-             });
-        }
-    }
 
     public function getRouteKeyName()
     {

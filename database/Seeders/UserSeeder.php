@@ -1,6 +1,13 @@
 <?php
 
+namespace Database\Seeders;
+
+
+use App\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -17,7 +24,7 @@ class UserSeeder extends Seeder
        $this->command->info("Creating {$count} users.");
 
         // Create the Genre
-        $users = factory(App\User::class, $count)->create();
+        $users = User::factory()->count($count)->create();
 
         $this->command->info('Users Created!');
     }

@@ -17,9 +17,10 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
+            $table->string('description')->unique();
             $table->text('icon');
             $table->string('color');
-            $table->string('bgcolor');
+            $table->boolean('online')->nullable()->default(false);
             $table->timestamps();
         });
     }

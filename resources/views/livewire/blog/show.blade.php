@@ -16,11 +16,11 @@
     >
       <span
         id="blackOverlay"
-        class="w-full h-full absolute opacity-50 bg-black"
+        class="absolute w-full h-full bg-black opacity-50"
       ></span>
     </div>
     <div
-      class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+      class="absolute bottom-0 left-0 right-0 top-auto w-full overflow-hidden pointer-events-none"
       style="height: 70px; transform: translateZ(0px);"
     >
       <svg
@@ -33,7 +33,7 @@
         y="0"
       >
         <polygon
-          class="text-gray-50 fill-current"
+          class="fill-current text-gray-50"
           points="2560 0 2560 100 0 100"
         ></polygon>
       </svg>
@@ -41,33 +41,33 @@
 </section>
 
 <section class="relative py-16">
-    <div class="container mx-auto px-4">
+    <div class="container px-4 mx-auto">
       <div
-        class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64"
+        class="relative flex flex-col w-full min-w-0 mb-6 -mt-64 break-words bg-white rounded-lg shadow-xl"
       >
         <div class="px-6">
           <div class="flex flex-wrap ">
             <div
-              class="w-full lg:w-3/12 px-4 flex justify-center"
+              class="flex justify-center w-full px-4 lg:w-3/12"
             >
               <div class="relative">
                 <img
-                  alt="..."
-                  src="https://user.oc-static.com/users/avatars/15970109488563_profil.jpg"
-                  class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
+                  alt="{{$article->author->name}}"
+                  src="{{ $article->author->avatar }}"
+                  class="absolute h-auto -ml-20 align-middle border-none rounded-full shadow-xl -m-9 lg:-ml-16"
                   style="max-width: 8rem;"
                 />
               </div>
             </div>
         
-            <div class="w-full lg:w-5/12 px-4 ">
-              <div class="flex justify-center py-4 lg:pt-4 pt-8">
+            <div class="w-full px-4 lg:w-5/12 ">
+              <div class="flex justify-center py-4 pt-8 lg:pt-4">
 
-                <div class="mr-4 p-3 text-gray-500 text-center flex flex-row">
+                <div class="flex flex-row p-3 mr-4 text-center text-gray-500">
                   <span class="text-sm ">{{ $article->author->name}}</span>
                 </div>
 
-                <div class="mr-4 p-3 text-gray-500 text-center flex flex-row">
+                <div class="flex flex-row p-3 mr-4 text-center text-gray-500">
                   <svg class="h-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>  
@@ -75,7 +75,7 @@
                     {{  $article->created_at->format('d M/Y')}}</span>
                 </div>
 
-                <div class="mr-4 p-3 text-gray-500 text-center flex flex-row">
+                <div class="flex flex-row p-3 mr-4 text-center text-gray-500">
                   <svg class="h-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>  
@@ -85,24 +85,24 @@
               </div>
             </div>
           </div>
-          <div class=" mt-12">
+          <div class="mt-12 ">
             <div class="">
-              <h1 class="text-center text-gray-800 text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl sm:leading-none md:text-6xl ">{{ $article->title}} </h1>
+              <h1 class="text-4xl font-extrabold leading-10 tracking-tight text-center text-gray-800 sm:text-5xl sm:leading-none md:text-6xl ">{{ $article->title}} </h1>
             </div>
             <div class="flex flex-wrap justify-center">
-              <div class="mb-2 text-gray-700 w-full lg:w-9/12 mt-10 px-4 ">
+              <div class="w-full px-4 mt-10 mb-2 text-gray-700 lg:w-9/12 ">
                 {{ $article->description}} 
               </div>
             </div>
             
           </div>
-          <div class="mt-10 py-10 border-t border-gray-300 ">
+          <div class="py-10 mt-10 border-t border-gray-300 ">
             <div class="flex flex-wrap justify-center">
-              <div class="w-full lg:w-9/12 px-4">
+              <div class="w-full px-4 lg:w-9/12">
                 <p class="mb-4 text-lg leading-relaxed text-gray-800">
                   <div class="prose lg:prose-xl">
                     {!! ($article->content) !!}
-                </div>
+                  </div>
                 </p>
               </div>
             </div>
@@ -115,9 +115,9 @@
 @include('includes.newsletter')
 
 
-<section class="container mx-auto px-6 my-10">
+<section class="container px-6 mx-auto my-10">
 
-    <section class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+    <section class="flex flex-wrap -mx-4 -mt-4 -mb-10 sm:-m-4">
         @foreach($populars as $popular)
         <x-card>
           <x-slot name="image">
@@ -134,13 +134,16 @@
           </x-slot>
         
           <x-slot name="name">
-              {{ $popular->name}}
+              {{ $popular->category->name}}
           </x-slot>
           <x-slot name="description">
               {{ $popular->description}}
           </x-slot>
           <x-slot name="author">
               {{ $popular->author->name }}
+          </x-slot>
+          <x-slot name="avatar">
+            {{ $article->author->avatar }}
           </x-slot>
           <x-slot name="slug">
               {{ $popular->slug }}
@@ -151,7 +154,7 @@
           <x-slot name="created_at">
               {{ $popular->created_at->diffForHumans() }}
           </x-slot>
-      </x-card>
+        </x-card>
         @endforeach
 
     </section>

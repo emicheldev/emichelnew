@@ -12,12 +12,12 @@
                     <div class="container px-6 py-8 mx-auto">
                         @if (session()->has('success'))
                             <div class="p-4 text-green-600 bg-green-300">
-                                {{Session::get('success')}}
+                                {{ session()->get('success') }}
                             </div>
                         @endif
                         @if (session()->has('error'))
                             <div class="p-4 text-red-600 bg-red-300">
-                                {{Session::get('error')}}
+                                {{ session()->get('error') }}
                             </div>
                         @endif
                         @yield('content')

@@ -19,16 +19,26 @@ use App\Http\Livewire\Topics\Index as Topics;
 use App\Http\Livewire\Admin\Index as dashoard;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Livewire\Admin\User\Index as Users;
+use App\Http\Livewire\Admin\User\Update as Updateusers;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Livewire\learning\Index as Learning;
 use App\Http\Livewire\learning\Show as Courseshow;
-use App\Http\Livewire\learning\Detail;
+use App\Http\Livewire\learning\Episode as Episode;
 use App\Http\Livewire\Admin\Blog\Index as AdminBlog;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Livewire\Subscriptions\Index as Subscription;
 use App\Http\Livewire\Subscriptions\Payment;
 use App\Http\Livewire\Subscriptions\PaymentStore;
+use App\Http\Livewire\Admin\Category\Index as Categories;
+use App\Http\Livewire\Admin\Tag\Index as Tags;
+use App\Http\Livewire\Admin\Course\Index as ListCourse;
+use App\Http\Livewire\Admin\Course\Create as CreateCourse;
+use App\Http\Livewire\Admin\Course\update as UpdateCourse;
+use App\Http\Livewire\Admin\Episode\Index as ListEpisode;
+use App\Http\Livewire\Admin\Episode\Create as CreateEpisode;
+use App\Http\Livewire\Admin\Episode\update as UpdateEpisode;
+
 
 
 /*
@@ -90,11 +100,11 @@ Route::get('/portfolio', portfolio::class)->name('portfolio');
 
 Route::get('/learning', Learning::class)->name('learning');
 Route::get('/topics.php', Topics::class)->name('topics.php');
-Route::get('/courses/show', Courseshow::class)->name('course_show');
-Route::get('/courses/detail', Detail::class)->name('detailcours');
+Route::get('/courses/{course}', Courseshow::class)->name('course_show');
+Route::get('/course/{course}/{episode}', Episode::class)->name('episode');
 Route::get('/learning.course', Course::class)->name('course');
     
-Route::get('/blog/', Index::class)->name('blog');
+Route::get('/blog', Index::class)->name('blog');
 Route::get('post/{article}', Show::class)->name('article.show');
 Route::get('/price', Price::class)->name('price');
 
@@ -103,10 +113,31 @@ Route::get('/price', Price::class)->name('price');
 Route::middleware(['auth','verified'])->group(function () {
     //Auth::routes(['verify' => true]);
     Route::get('admin/dashboard', dashoard::class)->name('dashboard');
+
+    //User
     Route::get('admin/users', Users::class)->name('users');
+    Route::get('admin/user/update/{id}', Updateusers::class)->name('updateuser');
+
+    // Blog
     Route::get('admin/blog', AdminBlog::class)->name('storepost');
     Route::get('admin/blog/create', Create::class)->name('createpost');
     Route::get('admin/blog/update/{id}', Update::class)->name('updatepost');
+
+    // Course
+    Route::get('admin/course', ListCourse::class)->name('listcourse');
+    Route::get('admin/course/create', CreateCourse::class)->name('createcourse');
+    Route::get('admin/course/update/{id}', UpdateCourse::class)->name('updatecourse');
+    
+    Route::get('admin/episode', ListEpisode::class)->name('listepisode');
+    Route::get('admin/episode/create', CreateEpisode::class)->name('createepisode');
+    Route::get('admin/episode/update/{id}', UpdateEpisode::class)->name('updateepisode');
+    
+
+    //Categorie
+    Route::get('admin/Categorie', Categories::class)->name('categories');
+
+    //Tag
+    Route::get('admin/tag', Tags::class)->name('tags');
 
 });
 

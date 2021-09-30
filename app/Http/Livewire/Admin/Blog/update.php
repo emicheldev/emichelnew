@@ -14,7 +14,7 @@ class Update extends Component
     public $description;
     public $content;
     public $image;
-    public $status;
+    public $online;
     public $author_id;
     public $categories;
     public $category_id;
@@ -38,7 +38,7 @@ class Update extends Component
         $this->article = Article::findOrFail($id);
         $this->article_id = $id;
         $this->title = $this->article->title;
-        $this->status = $this->article->status;
+        $this->online= $this->article->status;
         $this->description = $this->article->description;
         $this->content = $this->article->content;
         $this->image = $this->article->image;
@@ -51,7 +51,7 @@ class Update extends Component
     }
 
     public function update()
-    {
+    { 
        $data = $this->validate([
             'title' => 'required',
             'description' => 'required|min:20',

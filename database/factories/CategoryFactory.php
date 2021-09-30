@@ -1,13 +1,34 @@
 <?php
 
-use Faker\Generator as Faker;
+namespace Database\Factories;
 
-$factory->define(App\Models\Category::class, function (Faker $faker) {
-      return [
-       'name' => $faker->unique()->word,
-       'slug' => $faker->slug,
-       'icon' => $faker->unique()->word,
-       'color' => $faker->safeColorName,
-       'bgcolor' => $faker->hexColor,
-    ];
-});
+use App\User;
+use App\Models\Category;
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class CategoryFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Category::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'name' => $this->faker->unique()->word,
+            'slug' => $this->faker->slug,
+            'icon' => $this->faker->unique()->word,
+            'description' => $this->faker->paragraph(3),
+            'color' => $this->faker->hslColor(),
+         ];
+    }
+}

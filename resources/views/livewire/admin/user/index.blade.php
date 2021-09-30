@@ -9,7 +9,7 @@
                         <tr>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Name</th>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Title</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Status</th>
+                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">online</th>
                             <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">Role</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
                         </tr>
@@ -43,7 +43,7 @@
                                 <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">Owner</td>
 
                                 <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
-                                    <button wire:click="destroy({{$user->id}} )" class="text-indigo-600 hover:text-indigo-900">Modifier</button>
+                                    <a href="{{ route('updateuser', $user->id) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                     <button wire:click="destroy({{$user->id}} )" class="text-indigo-600 hover:text-indigo-900">Supprimer</button>
                                 </td>
                             </tr>

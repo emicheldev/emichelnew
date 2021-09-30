@@ -1,3 +1,9 @@
+@section('meta')
+    <x-meta.general description="Le but de cette plate-forme est de facilité l'apprentissage. Vous êtes développeur web, web designer? vous êtes au bon endroit.  "
+    title="eLearning | e.Michel"
+    />
+@endsection
+
 <section class="bg-fixed bg-no-repeat bg-cover font-montserrat" >
   <div class="flex flex-col-reverse items-center max-w-6xl mx-auto sm:px-12 sm:flex-row">
       <div class="flex flex-col items-start sm:w-2/5 sm:mt-0 font-title">
@@ -17,7 +23,7 @@
       <h2 class="mb-1 text-xs font-medium tracking-widest text-indigo-500 title-font">Nos différents sujets</h2>
       <h3 class="text-2xl font-bold text-gray-900 sm:text-3xl title-font">Choisissez votre sujet</h3>
     </div>
-    <div class="flex flex-wrap -m-4">
+    <div class="flex flex-wrap justify-center -m-4">
       <div class="p-4 md:w-1/6 ">
           <a href="{{route('topics.php')}} " class="flex items-center p-4 bg-blue-100 rounded-lg shadow-xs cursor-pointer hover:bg-blue-500 hover:text-gray-100">
               <div class="p-3 mr-4 bg-blue-300 rounded-full dark:text-orange-100 ">
@@ -223,14 +229,14 @@
 <section class="text-gray-700 body-font">
   <div class="max-w-6xl py-24 mx-auto">
     <div class="flex flex-col w-full mb-10 text-center">
-      <h3 class="mb-1 text-xs font-medium tracking-widest text-indigo-500 title-font">Nos différents sujets</h3>
-      <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl title-font">Derniers Cours</h2>
+      <h3 class="mb-1 text-xs font-medium tracking-widest text-indigo-500 title-font">Nos différents Cours</h3>
+      <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl title-font">En construction</h2>
     </div>
     <div class="flex flex-wrap gap-y-8">
      
-      @for ($i=1; $i<=8; $i++)
       
-        <div class="flex flex-col w-full px-2 sm:w-1/2 md:w-1/4 ">
+      
+        {{-- <div class="flex flex-col w-full px-2 sm:w-1/2 md:w-1/4 ">
           <img class="w-full rounded-lg" src="https://i.ytimg.com/vi/RIU5jVaXzEw/maxresdefault.jpg" alt="">
           <span class="mt-2 text-sm font-bold text-gray-900 ">Guide complet des dates en PHP</span>
           <div class="flex items-center text-xs">
@@ -241,9 +247,35 @@
 
             <div class="flex items-center expanded-card-meta-length"><svg width="13" height="13" viewBox="0 0 13 13" class="mr-2 "><path class="fill-current" fill-rule="evenodd" d="M6.5 0C2.925 0 0 2.925 0 6.5S2.925 13 6.5 13 13 10.075 13 6.5 10.075 0 6.5 0zm2.967 9L6 6.913V3h1v3.391l3 1.761L9.467 9z" opacity=".5"></path></svg><span>1h 17m</span></div>
           </div>
-        </div>
+        </div> --}}
         
-      @endfor
+
+      <div class="grid w-full grid-cols-1 gap-6 mt-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          @for ($i=1; $i<=4; $i++)
+
+            <div class="relative w-full p-4 overflow-hidden bg-white rounded-lg shadow hover:shadow-md">
+              <div class="flex flex-col animate-pulse">
+                <div class="w-full h-40 bg-gray-200 rounded"></div>
+                <div class="flex flex-col mt-5">
+                <div class="w-full h-5 bg-gray-200 rounded"></div>
+                <div class="w-10/12 h-3 mt-2 bg-gray-200 rounded"></div>
+                <div class="w-8/12 h-3 mt-2 bg-gray-200 rounded"></div>
+                </div>
+            
+            
+                <div class="flex items-center mt-5">
+                <div>
+                  <div class="w-10 h-10 bg-gray-200 rounded-full"></div>
+                </div>
+                <div class="flex justify-between w-full ml-3">
+                  <div class="w-5/12 h-3 bg-gray-200 rounded"></div>
+                  <div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+                </div>
+                </div>
+              </div>
+            </div>
+          @endfor
+      </div>
     
 
 

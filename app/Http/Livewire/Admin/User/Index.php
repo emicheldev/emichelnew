@@ -22,7 +22,6 @@ class Index extends Component
             session()->flash('success',"Utilisateur suppimer avec succes !");
         } catch (\Throwable $th) {
             session()->flash('error',"Il y a eu une erreur ");
-            
         }
     }
 }

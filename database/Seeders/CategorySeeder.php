@@ -1,7 +1,12 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class CategorySeeder extends Seeder
 {
@@ -17,7 +22,7 @@ class CategorySeeder extends Seeder
         $this->command->info("Creating {$count} categories.");
  
          // Create the Genre
-         $categories = factory(App\Models\Category::class, $count)->create();
+         $categories = Category::factory()->count($count)->create();        ;
  
          $this->command->info('categories Created!');
     }

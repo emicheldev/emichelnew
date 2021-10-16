@@ -34,11 +34,12 @@ class EpisodeFactory extends Factory
             'Video_path' => $this->faker->mimeType(),
             'duration' => $this->faker->numberBetween(10,150),
             'premium' => $this->faker->boolean(),
+            'online' => $this->faker->boolean(),
             'ressource' => "{'php.org','monsite.com','lien.com'}",
             'course_id' => function ()
             {
                 return Course::inRandomOrder()->first()->id;
-            } 
+            }
         ];
     }
 }

@@ -12,7 +12,7 @@ class Category extends Component
     public function mount()
     {
         $this->categories = cat::all();
-        dd($this->categories);
+        // dd($this->categories);
     }
     public function render()
     {

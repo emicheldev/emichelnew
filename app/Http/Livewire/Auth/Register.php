@@ -25,7 +25,12 @@ class Register extends Component
     /** @var string */
     public $passwordConfirmation = '';
  
-
+    
+    /**
+     * register new user
+     *
+     * @return void
+     */
     public function register()
     {
         $this->validate([
@@ -40,25 +45,13 @@ class Register extends Component
             'password' => Hash::make($this->password),
         ]);
 
+        
+        $user->assignRole('user');
+
         $user->sendEmailVerificationNotification();
         event(new Registered($user));
-        //event(new Registered($user));
-
-        // $verifyUser = VerifyUser::create([
-        //     'user_id' => $user->id,
-        //     'token' => sha1(time())
-        // ]);
-        
-        // \Mail::to($user->email)->send(new VerifyMail($user));
-
-        // //Auth::login($user, true);
-
-        // dd($verifyUser);
-
-        // redirect()->intended(route('home'));
-        
-        // Auth::login($user, true);
-        session()->flash('message', 'Post successfully updated.');
+       
+        session()->flash('successs', 'User successfully.');
 
 
         redirect()->to("register");

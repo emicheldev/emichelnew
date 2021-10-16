@@ -180,6 +180,8 @@ return [
 
         // My providers
         App\Repositories\BackendServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+
 
     ],
 

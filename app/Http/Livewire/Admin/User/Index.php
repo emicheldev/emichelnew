@@ -7,12 +7,11 @@ use App\User;
 
 class Index extends Component
 {
-    public $users ='';
 
     public function render()
     {
-        $this->users=User::get();
-        return view('livewire.admin.user.index')->extends('layouts.admin');
+        $users=User::get();
+        return view('livewire.admin.user.index', compact('users'))->extends('layouts.admin');
     }
 
     public function destroy($id)

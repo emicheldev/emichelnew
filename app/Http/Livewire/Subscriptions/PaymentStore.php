@@ -22,15 +22,17 @@ class PaymentStore extends Component
         'cvv' => 'required',
     ];
 
-    public function render(Request $request)
+    public function render(Request $request, Plans $plan)
     {
-      
-       
+
+
+        $this->validate();
 
         $plan = Plans::where('identifier', $request->plan)
-            ->orWhere('identifier', 'basic')
-            ->first();
-        
+        ->orWhere('identifier', 'basic')
+        ->first();
+        dd($plan);
+
         $request->user()->newSubscription('default', $plan->stripe_id) ->quantity(null)->create($request->token);
 
         return back();

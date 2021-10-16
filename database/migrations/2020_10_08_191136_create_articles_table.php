@@ -20,7 +20,7 @@ class CreateArticlesTable extends Migration
             $table->text('description');
             $table->text('content');
             $table->string('image')->nullable();
-            $table->boolean('online')->nullable()->default(false);
+            $table->boolean('online')->default(false);
             $table->integer('view_count')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->softDeletes();

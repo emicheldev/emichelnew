@@ -1,3 +1,8 @@
+
+@section('meta')
+<x-meta.course :course="$course" />
+@endsection
+
 @push('styles')
   <link rel="stylesheet" href=" " crossorigin="anonymous" />
   <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
@@ -23,7 +28,12 @@
           <div class="flex-col p-8 mx-5 sm:flex-row">
               <div class="presentation">
                 <h2 class="mb-3 font-bold text-indigo-600 title-font">Présentation</h2>
-                <p class="prose lg:prose-xl"> {!! $course->introduction !!} </p>
+                @if ( $course->youtube_id)
+                    <div class="my-5 aspect-w-16 aspect-h-9">
+                        <iframe class="w-full" src="https://www.youtube.com/embed/{{ $course->youtube_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+                    </div>
+                @endif
+                <p class="prose-sm prose sm:prose lg:prose-lg xl:prose-xl"> {!! $course->introduction !!} </p>
               </div>
               <div class="mt-12 prerequis ">
                 <h2 class="mb-3 font-bold text-indigo-600 title-font">Prérequis </h2>
@@ -33,20 +43,19 @@
               {{-- <div class="flex justify-center mt-5">
                 <a href="{{ route('detailcours')}} " class="px-10 py-3 text-lg font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-400">Commencer</a>
               </div> --}}
-      
+
           </div>
         </div>
-        
+
         <div class="w-full">
             <div class="mb-10 text-lg leading-loose " >
-              @include('includes.course_sidebar' ) 
+              @include('includes.course_sidebar' )
             </div>
         </div>
-        
+
     </div>
 </section>
 
 @push('scripts')
   <script type="text/javascript" src="{{ asset('js/prism.js') }}"></script>
 @endpush
-  

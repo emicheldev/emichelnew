@@ -42,7 +42,6 @@ class Index extends Component
                     'author_id',
                     'name','icon','color')
             ->orderByDesc('created_at')->paginate(9);
-        
             $categories=Category::select('id','name','icon','color')->get();
 
         return view('livewire.blog.index', ['articles' => $this->articles, 'categories'=> $categories])->extends('layouts.app');

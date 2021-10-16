@@ -22,6 +22,7 @@ class CreateEpisodesTable extends Migration
             $table->string('youtube_id');
             $table->string('Video_path');
             $table->string('slug')->unique();
+            $table->boolean('online')->default(false);
             $table->integer('duration');
             $table->boolean('premium');
             $table->text('ressource');

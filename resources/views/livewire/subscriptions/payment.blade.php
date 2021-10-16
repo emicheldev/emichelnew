@@ -5,12 +5,12 @@
                 <div class="card-header">{{ __('Checkout page') }}</div>
 
                 <div class="card-body">
-                    <form id="payment-form" wire:submit.prevent="PaymentStore" method="POST">
+                    <form id="payment-form" wire:submit.prevent="paymentstore" method="POST">
                         @csrf
-                        <input type="hidden" name="plan" id="plan" value="{{ request('plan') }}">
+                        <input type="hidden" name="plan" id="plan" wire::model='plan' value="{{ request('plan') }}">
                         <div class="form-group">
                             <label for="">Nom</label>
-                            <input type="text" name="name" id="card-holder-name" class="form-control" value="" placeholder="Name on the card">
+                            <input type="text" name="name" id="card-holder-name" class="form-control" value="{{ request('title') }}" wire:model='name' placeholder="Name on the card">
                         </div>
                         <div class="form-group">
                             <label for="">Card details</label>
@@ -28,7 +28,7 @@
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
-    const stripe = Stripe('{{ config('cashier.key') }}')
+    const stripe = Stripe('{{ config('STRIPE_KEY') }}');
 
     const elements = stripe.elements()
     const cardElement = elements.create('card')

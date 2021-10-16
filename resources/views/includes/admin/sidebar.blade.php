@@ -1,5 +1,5 @@
 <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false" class="fixed inset-0 z-20 transition-opacity bg-black opacity-50 lg:hidden"></div>
-    
+
 <div :class="sidebarOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'" class="fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto text-xs transition duration-300 transform bg-gray-900 lg:translate-x-0 lg:static lg:inset-0">
     <div class="flex items-center justify-center mt-8">
         <div class="">
@@ -21,41 +21,56 @@
             <span class="mx-3">Dashboard</span>
         </a>
 
-        <div class="" x-data="{ open: false }">
-            <a class="flex items-center px-6 py-2 mt-1 text-gray-500 cursor-pointer hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" @click="open = true">
+        @role('admin')
+            <div class="" x-data="{ open: false }">
+                <a class="flex items-center px-6 py-2 mt-1 text-gray-500 cursor-pointer hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" @click="open = true">
 
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                <span class="mx-3">Posts</span>
-            </a>
-            <div class="flex flex-col px-6 py-2 text-gray-200 bg-gray-800" x-show="open" @click.away="open = false">
-                <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('storepost')}} ">Lister </a>
-                <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('createpost')}}">Ajouter</a>
-                <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('categories')}}">Catégories</a>
-                <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('tags')}}">Tags</a>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                    <span class="mx-3">Posts</span>
+                </a>
+                <div class="flex flex-col px-6 py-2 text-gray-200 bg-gray-800" x-show="open" @click.away="open = false">
+                    <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('storepost')}} ">Lister </a>
+                    <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('createpost')}}">Ajouter</a>
+                    <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('categories')}}">Catégories</a>
+                    <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('tags')}}">Tags</a>
+                </div>
             </div>
-        </div>
 
-        <div class="" x-data="{ open: false }">
-            <a class="flex items-center px-6 py-2 mt-1 text-gray-500 cursor-pointer hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" @click="open = true">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                <span class="mx-3">Cours</span>
-            </a>
-            <div class="flex flex-col px-6 py-2 text-gray-200 bg-gray-800" x-show="open" @click.away="open = false">
-                <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('listcourse')}} ">Lister </a>
-                <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('createcourse')}}">Ajouter</a>
+            <div class="" x-data="{ open: false }">
+                <a class="flex items-center px-6 py-2 mt-1 text-gray-500 cursor-pointer hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" @click="open = true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span class="mx-3">Cours</span>
+                </a>
+                <div class="flex flex-col px-6 py-2 text-gray-200 bg-gray-800" x-show="open" @click.away="open = false">
+                    <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('listcourse')}} ">Lister </a>
+                    <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('createcourse')}}">Ajouter</a>
 
-                <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('listepisode')}}">Episode Lister</a>
-                <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('createepisode')}}">Episode Ajouter</a>
+                    <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('listepisode')}}">Episode Lister</a>
+                    <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('createepisode')}}">Episode Ajouter</a>
+                </div>
             </div>
-        </div>
+
+            <div class="" x-data="{ open: false }">
+                <a class="flex items-center px-6 py-2 mt-1 text-gray-500 cursor-pointer hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" @click="open = true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <span class="mx-3">Role</span>
+                </a>
+                <div class="flex flex-col px-6 py-2 text-gray-200 bg-gray-800" x-show="open" @click.away="open = false">
+                    <a class="px-6 py-2 mt-1 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route('role')}} ">Lister </a>
+
+                </div>
+            </div>
 
 
-        <a class="flex items-center px-6 py-2 mt-1 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route("users")}} ">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <a class="flex items-center px-6 py-2 mt-1 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100" href="{{ route("users")}} ">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
 
-            <span class="mx-3">Users</span>
-        </a>
+                <span class="mx-3">Users</span>
+            </a>
+        @endrole
     </nav>
 </div>

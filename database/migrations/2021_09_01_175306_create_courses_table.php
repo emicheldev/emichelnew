@@ -23,7 +23,7 @@ class CreateCoursesTable extends Migration
             $table->text('description');
             $table->integer('level');
             $table->string('youtube_id');
-            $table->boolean('online')->nullable()->default(false);
+            $table->boolean('online')->default(false);
             $table->integer('view_count')->default(0);
             // $table->unsignedBigInteger('category_id')->nullable();
             $table->foreignId('author_id')->constrained('users');

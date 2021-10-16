@@ -13,7 +13,7 @@ class Index extends Component
     public $description;
     public $content;
     public $image;
-    public $status;
+    public $online;
     public $author_id;
     public $categories;
     public $category_id;
@@ -40,7 +40,7 @@ class Index extends Component
         $article = Article::findOrFail($id);
         $this->article_id = $id;
         $this->title = $article->title;
-        $this->status = $article->status;
+        $this->online = $article->online;
         $this->description = $article->description;
         $this->content = $article->content;
         $this->image = $article->image;

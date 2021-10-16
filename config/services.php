@@ -47,5 +47,11 @@ return [
         'client_secret' => 'your-facebook-app-secret',
         'redirect' => 'http://your-callback-url',
     ],
+    
+    'stripe' => [
+        'model'  => App\User::class,
+        'key' => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
+    ],
 
 ];

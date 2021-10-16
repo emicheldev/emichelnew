@@ -1,15 +1,15 @@
-<div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
-    <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style="background-image: url({{$image }} )"></div>
+<div class="flex flex-col items-center justify-center max-w-sm p-4 mx-auto mb-6 md:w-1/3 md:mb-0">
+    <a href="{{ route('article.show', $slug)}}" class="w-full h-56 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url({{$image }} )"></a>
 
-    <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
+    <div class="p-5 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg w-70">
         
         <div class="header-content ">
            <div class="flex justify-between text-sm">
-               <div class="inline-flex">
-               <div class="category-badge flex-1  h-4 w-4 m rounded-full m-1 " style="background-color: {{ $bgcolor }}">
-                        <div class="h-2 w-2 rounded-full m-1 " style="background-color: {{ $color }}" ></div>
+               <div class="inline-flex items-center">
+                    <div class="flex-1 w-4 h-4 m-1 bg-opacity-50 rounded-full category-badge " style="background-color: rgba({{ $color }},0.3) ">
+                        <div class="w-2 h-2 m-1 rounded-full " style="background-color: rgba({{ $color }}, 1)" ></div>
                     </div>
-                    <div class="category-title flex-1"> {{ $name}}</div>
+                    <div class="flex-1 capitalize category-title"> {{ $name}}</div>
                </div>
                <div class="inline-flex gap-1">
                    <svg class="h-4 mt-0.5" cl xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -20,15 +20,15 @@
                 </div>
            </div>
         </div>
-        <div class="title-post font-medium text-base "><a href="{{ route('article.show', $slug) }}">{{ $title, 10 }}</a> </div>
-        <div class="summary-post text-gray-700 text-sm">{{ Str::limit($description, 50)}} 
-            <div class="flex justify-between items-center mt-4">
+        <div class="text-base font-medium title-post "><a href="{{ route('article.show', $slug) }}">{{ $title }}</a> </div>
+        <div class="text-sm text-gray-700 summary-post">{{ Str::limit($description, 50)}} 
+            <div class="flex items-center justify-between mt-4">
                 <div class="flex items-center">
-                    <img src="https://user.oc-static.com/users/avatars/15970109488563_profil.jpg"
-                        class="w-8 h-8 object-cover rounded-full" alt="{{ $author  }}">
-                    <a class="text-gray-700 text-sm mx-3" href="#">{{ $author  }}</a>
+                    <img src="{{ $avatar }}"
+                        class="object-cover w-8 h-8 rounded-full" alt="{{ $author  }}">
+                    <a class="mx-3 text-sm text-gray-700" href="#">{{ $author  }}</a>
                 </div>
-                <span class="font-light text-sm text-gray-600">{{$created_at }}</span>
+                <span class="text-sm font-light text-gray-600">{{$created_at }}</span>
             </div>
         </div>
     </div>

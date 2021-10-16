@@ -64,8 +64,8 @@
                     </label>
 
                     <div class="flex justify-end mt-4 text-xs ">
-                        <button type="submit" wire:click="$set('status','0')" value="0"  class="px-4 py-2 text-gray-700 rounded border focus:outline-none focus:bg-gray-700 mr-2">Enregistrer</button>
-                        <button type="submit" wire:click="$set('status','1')" value="1" class="px-4 py-2 bg-blue-800 text-gray-100 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Publier</button>
+                        <button type="submit" wire:click="$set('online','0')" value="0"  class="px-4 py-2 text-gray-700 rounded border focus:outline-none focus:bg-gray-700 mr-2">Enregistrer</button>
+                        <button type="submit" wire:click="$set('online','1')" value="1" class="px-4 py-2 bg-blue-800 text-gray-100 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Publier</button>
                     </div>
                 </form>
             </div>

@@ -15,9 +15,9 @@ class RegisterController extends Controller
             if(!$user->verified) {
             $verifyUser->user->verified = 1;
             $verifyUser->user->save();
-            $status = "Your e-mail is verified. You can now login.";
+            $online= "Your e-mail is verified. You can now login.";
             } else {
-            $status = "Your e-mail is already verified. You can now login.";
+            $online= "Your e-mail is already verified. You can now login.";
             }
         } else {
             return redirect('/login')->with('warning', "Sorry your email cannot be identified.");

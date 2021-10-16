@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 
 class TagSeeder extends Seeder
@@ -17,7 +19,8 @@ class TagSeeder extends Seeder
        $this->command->info("Creating {$count} tags.");
 
         // Create the Genre
-        $tags = factory(App\Models\Tag::class, $count)->create();
+        $tags = Tag::factory()->count($count)->create();        ;
+
 
         $this->command->info('tags Created!');
     }

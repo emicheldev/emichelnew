@@ -18,7 +18,7 @@ class Create extends Component
     public $description;
     public $content;
     public $image;
-    public $status;
+    public $online;
     public $author_id;
     public $categories;
     public $category_id;
@@ -65,21 +65,22 @@ class Create extends Component
             'description' => 'required|min:20',
             'content' => 'required |min:50',
             'image' => 'required',
+            'category_id' => 'required',
         ]);
 
         $Article=Article::create([
             'title' =>  $this->title,
-            'status' => $this->status,
+            'online' => $this->online,
             'description' => $this->description,
             'content' => (new CommonMarkConverter())->convertToHtml($this->content),
             'image' => $this->image,
             'slug' =>  Str::slug($this->title),
             'author_id' => auth()->user()->id,
             'category_id' => $this->category_id,
-            ]);
+        ]);
 
         $Article->tags()->attach($this->tags_id);
-        session()->flash('message', 'Post Created Successfully.');
+        session()->flash('message', 'Article crée avec success 👌.');
 
         return redirect()->route('createpost');
 

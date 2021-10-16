@@ -180,6 +180,8 @@ return [
 
         // My providers
         App\Repositories\BackendServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+
 
     ],
 
@@ -234,8 +236,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         
         // Other aliases…
-
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
 
     ],
 

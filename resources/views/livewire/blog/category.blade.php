@@ -15,14 +15,14 @@
           </div>
         @foreach ($categories as $category)
             <div class="p-2 md:w-40 ">
-              <div class="flex items-center p-4 
-                  rounded-lg shadow-xs cursor-pointer hover:bg-{{$category->color}} hover:text-gray-100 "
+              <div class="flex items-center justify-center p-4 rounded-lg shadow-xs cursor-pointer hover:text-gray-100 "
               wire:click="$set('searchCategory', '{{$category->name}}')"
-              style="background-color: {{$category->bgcolor}}  "
+              style="background-color:rgba({{ $category->color }}, 0.4) "
+              
               >
-                  {!! $category->icon !!}
-                  <div>
-                    <p class="ml-2 text-sm font-medium ">
+                  <span class="w-6 h-6">{!! $category->icon !!}</span>
+                  <div style="color: rgb({{$category->color}})">
+                    <p class="ml-2 text-sm font-medium " >
                      {{ $category->name}}
                     </p>
                     

@@ -1,7 +1,12 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\Models\Article;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ArticleSeeder extends Seeder
 {
@@ -18,7 +23,7 @@ class ArticleSeeder extends Seeder
         $this->command->info("Creating {$count} articles.");
 
         // Create the Genre
-        $articles = factory(App\Models\Article::class, $count)->create();
+        $articles = Article::factory()->count($count)->create();        ;
 
         $this->command->info('Articles Created!');
     }

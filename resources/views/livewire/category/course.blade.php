@@ -1,17 +1,11 @@
 
-<section class="px-6 py-5 bg-blue-100 border-b border-blue-500 h-36" >
-    <div class="flex justify-end max-w-6xl px-5 mx-auto md:flex">
-            <div class="w-full md:w-1/2">
-                <div class="max-w-lg">
-                    <h1 class="text-xl font-black text-blue-600 uppercase md:text-2xl">{{ $category->name }}</h1>
-                    <p class="text-base text-gray-600 ">
-                        {{ $category->description }}
-                    </p>
-                </div>
-            </div>
-            <div class="flex justify-end mt-6 md:mt-0 md:w-1/2">
-                <p class="h-28 w-28">{!! $category->icon !!}</p>
-            </div>
+
+
+<section class="container px-6 mx-auto my-10">
+    <div class="flex flex-col items-center justify-center px-4 py-6 mt-6 text-gray-100 bg-indigo-700 rounded-lg sm:py-6 lg:py-10 sm:px-6 lg:px-12">
+            <p class="w-12 h-12 text-red-300 ">{!! $category->icon !!}</p>
+            <h1 class="mb-2 text-2xl font-bold leading-snug uppercase sm:text-6xl text-secondary">{{ $category->name }}</h1>
+            <p class="mb-6 sm:text-lg lg:pr-12">{{ $category->description }}</p>
     </div>
 </section>
 

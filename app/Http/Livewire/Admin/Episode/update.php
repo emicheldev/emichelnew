@@ -5,45 +5,39 @@ namespace App\Http\Livewire\Admin\episode;
 use App\Models\Course;
 use App\Models\Episode;
 use Livewire\Component;
-use App\Models\Category;
 
 class Update extends Component
 {
-    public $title='';
+    public $title;
     public $slug;
-    public $description;
     public $content;
-    public $image;
     public $online;
-    public $author_id;
-    public $categories;
-    public $category_id;
-    public $tags_id=[];
-    public $tags=[];
-    public $article_id;
-    public $article;
-    public $availableTags=[];
+    public $duration;
+    public $Video_path;
+    public $ressource;
+    public $premium;
+    public $youtube_id;
+    public $episode_id;
+    public $course_id;
+    public $courses;
 
-    
+
     public function mount($id)
     {
-        $this->availableTags =Tag::orderBy('title')
+
+
+        $this->courses=Course::orderBy('title')
         ->pluck('title','id')
         ->toArray();
 
-        $this->categories=Category::orderBy('name')
-        ->pluck('name','id')
-        ->toArray();
-        
-        $this->article = Article::findOrFail($id);
-        $this->article_id = $id;
-        $this->title = $this->article->title;
-        $this->online= $this->article->status;
-        $this->description = $this->article->description;
-        $this->content = $this->article->content;
-        $this->image = $this->article->image;
-        $this->category_id = $this->article->category_id;
-        // $this->tags= $this->article->tags->pluck('id')->toArray();
+        $this->episode = episode::findOrFail($id);
+        $this->episode_id = $id;
+        $this->title = $this->episode->title;
+        $this->online= $this->episode->online;
+        $this->ressource = $this->episode->ressource;
+        $this->content = $this->episode->content;
+        $this->course_id = $this->episode->course_id;
+
     }
     public function render()
     {
@@ -51,34 +45,31 @@ class Update extends Component
     }
 
     public function update()
-    { 
+    {
        $data = $this->validate([
             'title' => 'required',
-            'description' => 'required|min:20',
+            'ressource' => 'required|min:20',
             'content' => 'required |min:50',
-            'image' => 'required',
         ]);
 
-        if($this->article_id){
-            $article= Article::find($this->article_id);
-             $article->update([
+        if($this->episode_id){
+            $episode= Episode::find($this->episode_id);
+             $episode->update([
                 'title' => $this->title,
-                'status' => $this->status,
-                'description' => $this->description,
+                'online' => $this->online,
+                'ressource' => $this->ressource,
                 'content' => $this->content,
-                'image' => $this->image,
-                'category_id' => $this->category_id,
+                'course_id' => $this->course_id,
             ]);
         }
-        $article->tags()->attach($this->tags_id);
-        session()->flash('message', 'Post Created Successfully.');
+        session()->flash('success', 'episode Modified Successfully.');
 
-        return redirect()->route('createpost');
+        return redirect()->route('listepisode');
 
 
     }
 
- 
-    
-   
+
+
+
 }

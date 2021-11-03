@@ -25,7 +25,7 @@ class Show extends Component
     {
         $article->increment('view_count');
         $this->article= $article;
-        $this->populars= $article::with(['category','author'])->where('id','!=',$article->id)->limit(3)->Popular()->get();
+        $this->populars= $article::with(['category','author'])->where('id','!=',$article->id)->limit(4)->Popular()->get();
 
     }
 

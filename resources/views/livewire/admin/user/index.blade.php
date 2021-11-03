@@ -30,7 +30,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                
+
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                     <div class="text-sm leading-5 text-gray-900">Software Engineer</div>
                                     <div class="text-sm leading-5 text-gray-500">Web dev</div>
@@ -40,7 +40,7 @@
                                     <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Active</span>
                                 </td>
 
-                                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">Owner</td>
+                                <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">{{ $user->getRoleNames() }}</td>
 
                                 <td class="px-6 py-4 text-sm font-medium leading-5 text-right whitespace-no-wrap border-b border-gray-200">
                                     <a href="{{ route('updateuser', $user->id) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
@@ -48,7 +48,7 @@
                                 </td>
                             </tr>
                         @endforeach
-                       
+
                     </tbody>
                 </table>
             </div>

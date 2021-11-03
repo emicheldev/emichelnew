@@ -47,11 +47,16 @@ return [
         'client_secret' => 'your-facebook-app-secret',
         'redirect' => 'http://your-callback-url',
     ],
-    
+
     'stripe' => [
         'model'  => App\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
+    ],
+
+    'youtube' => [
+        'api_key' => env('YOUTUBE_API'),
+        'channel_id' => env('YOUTUBE_CHANNE_ID'),
     ],
 
 ];

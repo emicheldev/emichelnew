@@ -1,9 +1,9 @@
 <section class="px-6 py-5 bg-blue-100 border-b border-blue-500 " >
   <div class="flex flex-col justify-start max-w-6xl px-5 mx-auto mt-4 mb-10 ">
-          <h1 class="text-2xl md:text-4xl">Cours en ligne</h1>
+          <h1 class="text-2xl font-bold md:text-4xl">Cours en ligne</h1>
           <p class="text-sm text-gray-600 ">
-              {{-- Découvrez tous nos cours et apprenez des nouvelles technologies  --}}
-              Plateforme en Construction 🙏
+              Découvrez tous nos cours et apprenez des nouvelles technologies
+
           </p>
   </div>
 </section>

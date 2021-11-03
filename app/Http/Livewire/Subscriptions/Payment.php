@@ -11,6 +11,7 @@ class Payment extends Component
     public $data;
     public $name;
     protected $stripe;
+    public $paymentmethod;
 
 
 

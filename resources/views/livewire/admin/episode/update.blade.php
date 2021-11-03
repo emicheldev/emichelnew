@@ -17,10 +17,10 @@
 
                     <div class="grid grid-cols-1 gap-6 my-4 sm:grid-cols-2">
                         <label class="block">
-                            <select class="block w-full mt-1 border form-select" wire:model="category_id">
-                                <option value='' disable>--Selection de catégories--</option>
-                                @forelse ($categories as $id => $label)
-                                    <option value="{{$id}}" {{ $id == $category_id ? 'selected' : '' }} >{{$label}} </option>
+                            <select class="block w-full mt-1 border form-select" wire:model="course_id">
+                                <option value='' disable>--Selection de Cours--</option>
+                                @forelse ($courses as $id => $label)
+                                    <option value="{{$id}}" {{ $id == $course_id ? 'selected' : '' }} >{{$label}} </option>
                                 @empty
                                 pas de categorie
                                 @endforelse
@@ -43,18 +43,13 @@
                     </div>
 
                     <label class="block my-5">
-                        <textarea class="block w-full mt-1 border form-textarea" rows="3" placeholder="Enter description of post." wire:model='description'></textarea>
-                        @error('description') <div  class="invalid-feedback">{{ $message }}</div> @enderror
-                    </label>
-
-                    <label class="block my-5">
-                        <textarea class="block w-full mt-1 border form-textarea" rows="3" placeholder="Enter prerequisites of post." wire:model='prerequisites'></textarea>
-                        @error('prerequisites') <div  class="invalid-feedback">{{ $message }}</div> @enderror
+                        <textarea class="block w-full mt-1 border form-textarea" rows="3" placeholder="Enter ressource of post." wire:model='ressource'></textarea>
+                        @error('ressource') <div  class="invalid-feedback">{{ $message }}</div> @enderror
                     </label>
 
                     <label class="block">
-                        <textarea class="block w-full mt-1 border form-textarea" rows="10" placeholder="Enter introduction." wire:model='introduction'></textarea>
-                        @error('introduction') <div  class="invalid-feedback">{{ $message }}</div> @enderror
+                        <textarea class="block w-full mt-1 border form-textarea" rows="10" placeholder="Enter content." wire:model='content'></textarea>
+                        @error('content') <div  class="invalid-feedback">{{ $message }}</div> @enderror
                     </label>
 
                     <div class="flex justify-end mt-4 text-xs ">

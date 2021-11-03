@@ -6,7 +6,6 @@ use App\Http\Livewire\Blog\Index;
 use App\Http\Livewire\Pages\Home;
 use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\Pages\Price;
-use Spatie\Permission\Models\Role;
 use App\Http\Livewire\Auth\Register;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Learning\Course;
@@ -39,8 +38,8 @@ use App\Http\Livewire\Subscriptions\Index as Subscription;
 use App\Http\Livewire\Admin\Episode\Create as CreateEpisode;
 use App\Http\Livewire\Admin\Episode\update as UpdateEpisode;
 use App\Http\Livewire\Admin\Role\Index as Rol;
-
-
+use App\Http\Livewire\Tutorial\Tutorial;
+use App\Http\Livewire\Tutorial\Watch;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,14 +88,20 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/plans', Subscription::class)->name('plans');
-Route::get('/payments', Payment::class)->name('payments');
-Route::post('/paymentstore', PaymentStore::class)->name('paymentstore');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/payments', Payment::class)->name('payments');
+    Route::post('/paymentstore', PaymentStore::class)->name('paymentstore');
+});
 
 
 
 Route::get('sitemap.xml', [SiteMapController::class, 'index'])->name('sitemap');
 
 Route::get('/', Home::class)->name('home');
+Route::get('/tutorials', Tutorial::class)->name('tutorials');
+Route::get('/watch/{videoId}', Watch::class)->name('watch');
 Route::get('/portfolio', portfolio::class)->name('portfolio');
 
 Route::get('/learning', Learning::class)->name('learning');

@@ -1,8 +1,8 @@
-<div class="flex flex-col items-center justify-center max-w-sm p-4 mx-auto mb-6 md:w-1/3 md:mb-0">
+<div class="flex flex-col items-center justify-center w-full max-w-sm p-4 mx-auto mb-6 xl:w-1/4 md:w-2/4 md:mb-0">
     <a href="{{ route('article.show', $slug)}}" class="w-full h-56 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style="background-image: url({{$image }} )"></a>
 
     <div class="p-5 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg w-70">
-        
+
         <div class="header-content ">
            <div class="flex justify-between text-sm">
                <div class="inline-flex items-center">
@@ -21,7 +21,7 @@
            </div>
         </div>
         <div class="text-base font-medium title-post "><a href="{{ route('article.show', $slug) }}">{{ $title }}</a> </div>
-        <div class="text-sm text-gray-700 summary-post">{{ Str::limit($description, 50)}} 
+        <div class="text-sm text-gray-700 summary-post">{{ Str::limit($description, 50)}}
             <div class="flex items-center justify-between mt-4">
                 <div class="flex items-center">
                     <img src="{{ $avatar }}"
